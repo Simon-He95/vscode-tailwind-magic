@@ -1,0 +1,103 @@
+{
+  "publisher": "simonhe",
+  "name": "vscode-tailwind-magic",
+  "displayName": "vscode-tailwind-magic",
+  "version": "0.0.73",
+  "packageManager": "pnpm@8.1.1",
+  "description": "vscode-tailwind-magic",
+  "author": "Simon He <https://github.com/Simon-He95>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/Simon-He95",
+  "homepage": "https://github.com/Simon-He95/vscode-tailwind-magic#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Simon-He95/vscode-tailwind-magic"
+  },
+  "bugs": {
+    "url": "https://github.com/Simon-He95/vscode-tailwind-magic/issues"
+  },
+  "sponsor": {
+    "url": "https://github.com/Simon-He95/sponsor"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/index.js",
+  "icon": "icon.png",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "tailwindMagic",
+      "properties": {
+        "tailwindMagic.variantGroup": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable transform hover:(x1 x2) to hover:x1 hover:x2"
+        },
+        "tailwindMagic.strictMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "if true bg#fff or bgrgba(0,0,0,.0) will transform bg-[#fff] or bg-[rgba(0,0,0,.0)]"
+        },
+        "tailwindMagic.attributifyMode": {
+          "type": "boolean",
+          "default": true,
+          "description": "if true the attribute bg#fff will tranasform class=\"bg-[#fff]\""
+        },
+        "tailwindMagic.presets": {
+          "type": "array",
+          "default": [],
+          "description": "set transform rules"
+        },
+        "tailwind-magic.code": {
+          "type": "boolean",
+          "default": "",
+          "description": "activation code"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "dev": "pnpm build --watch",
+    "test": "vitest",
+    "build": "tsup src/index.ts --external vscode",
+    "pack": "vsce package --no-dependencies",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+    "lint:fix": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache --fix",
+    "publish": "vsce publish --no-dependencies",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && pnpm run publish"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.38.4",
+    "@types/node": "^18.15.11",
+    "@types/vscode": "^1.77.0",
+    "@unocss/core": "^0.56.5",
+    "@unocss/preset-attributify": "^0.56.5",
+    "@unocss/preset-uno": "^0.56.5",
+    "@vscode-use/utils": "^0.0.74",
+    "@vue/compiler-sfc": "^3.3.4",
+    "axios": "^1.6.3",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.37.0",
+    "esno": "^0.16.3",
+    "node-machine-id": "^1.1.12",
+    "pnpm": "^8.1.1",
+    "rimraf": "^4.4.1",
+    "tailwindcss": "^3.3.3",
+    "transform-to-tailwindcss-core": "^0.0.6",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.3",
+    "vitest": "^0.29.8",
+    "vsce": "^2.15.0"
+  }
+}
