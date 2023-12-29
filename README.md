@@ -15,7 +15,7 @@
 
 - Use the latest version of vscode
 - If there is an abnormality after the automatic update, you can uninstall and reinstall it.
-- It is recommended to use it with [`totailwindcss`] (https://github.com/Simon-He95/vscode-toTailwindcss), which can use the browser After copying the style, it directly outputs the syntax of tailwindcss to the corresponding position of the plug-in, and can hover the native css prompt the corresponding syntax of tailwindcss.
+- It is recommended to use it with [`totailwindcss`](https://github.com/Simon-He95/vscode-toTailwindcss), which can use the browser After copying the style, it directly outputs the syntax of tailwindcss to the corresponding position of the plug-in, and can hover the native css prompt the corresponding syntax of tailwindcss.
 
 ![demo](assets/demo.gif)
 
