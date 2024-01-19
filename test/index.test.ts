@@ -271,6 +271,19 @@ describe('should', () => {
     expect(
       transform('class="w95% w-95% -w10% w95px"')).toMatchInlineSnapshot('"class=\\"w-[95%] w-[95%] -w-[10%] w-[95px]\\""')
   })
+  it('screen', () => {
+    expect(
+      transform('class=">500px:w-10px w-20px"')).toMatchInlineSnapshot('"class=\\"max-[500px]:w-[10px] w-[20px]\\""')
+    expect(
+      transform('class="w10px >500px:w-10px w-20px"')).toMatchInlineSnapshot('"class=\\"w-[10px] max-[500px]:w-[10px] w-[20px]\\""')
+    expect(
+      transform('class=" >500px:w-10px w-20px"')).toMatchInlineSnapshot('"class=\\" max-[500px]:w-[10px] w-[20px]\\""')
+
+    expect(
+      transform('class="w10px <500px:w10px w-20px"')).toMatchInlineSnapshot('"class=\\"w-[10px] min-[500px]:w-[10px] w-[20px]\\""')
+    expect(
+      transform('class="w10px md:w10px w-20px"')).toMatchInlineSnapshot('"class=\\"w-[10px] md:w-[10px] w-[20px]\\""')
+  })
 })
 
 describe('transformClass', () => {
