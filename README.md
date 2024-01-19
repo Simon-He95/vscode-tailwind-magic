@@ -38,7 +38,7 @@
 - ma -> m-auto
 - text10rpx -> text-\[length:10rpx\]
 - hover:(text-red bg-blue) -> hover:text-red hover:bg-blue
-- >500px:w10px -> max-[500px]:w-[10px]
+- \>500px:w10px -> max-[500px]:w-[10px]
 - <500px:(w10px h20px) -> min-[500px]:w-[10px] min-[500px]:h-[20px]
 
 
