@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { transform, transformClass } from '../src/transform'
+import { transform, transformClass, transformClassAttr } from '../src/transform'
 
 describe('should', () => {
   it('exported', () => {
@@ -290,15 +290,51 @@ describe('should', () => {
     expect(
       transform('class="hover:(text-red bg-blue)"')).toMatchInlineSnapshot('"class=\\"hover:text-red hover:bg-blue\\""')
     expect(
+      transform('className="hover:(text-red bg-blue)"')).toMatchInlineSnapshot('"className=\\"hover:text-red hover:bg-blue\\""')
+    expect(
       transformClass('hover:(text-red bg-blue)"')).toMatchInlineSnapshot('"hover:text-red hover:bg-blue\\""')
     expect(
-      transformClass('hover:(flex-center)')).toMatchInlineSnapshot('"hover:flex hover:justify-center hover:items-center"')
+      transformClass('hover:(text-red bg-blue)')).toMatchInlineSnapshot('"hover:text-red hover:bg-blue"')
     expect(
       transformClass('md:(flex-center)')).toMatchInlineSnapshot('"md:flex md:justify-center md:items-center"')
     expect(
       transformClass('<500px:(flex-center)')).toMatchInlineSnapshot('"min-[500px]:flex min-[500px]:justify-center min-[500px]:items-center"')
     expect(
       transformClass('<500px:(border#eee)')).toMatchInlineSnapshot('"min-[500px]:border-[#eee] min-[500px]:border min-[500px]:border-solid"')
+  })
+})
+
+describe('transformClassAttr', () => {
+  it('transformClassAttr', async () => {
+    expect(await transformClassAttr([{
+      content: 'hover:(text-red bg-blue)',
+      line: 0,
+      charater: 0,
+      end: {
+        column: 0,
+        line: 0,
+      },
+      start: {
+        column: 0,
+        line: 0,
+      },
+    }])).toMatchInlineSnapshot(`
+      [
+        {
+          "content": "hover:text-red hover:bg-blue",
+          "end": {
+            "column": 0,
+            "line": 0,
+          },
+          "node": undefined,
+          "raw": "hover:(text-red bg-blue)",
+          "start": {
+            "column": 0,
+            "line": 0,
+          },
+        },
+      ]
+    `)
   })
 })
 

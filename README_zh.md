@@ -48,7 +48,7 @@
       "properties": {
         "tailwindMagic.variantGroup": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Enable/disable transform hover:(x1 x2) to hover:x1 hover:x2"
         },
         "tailwindMagic.strictMode": {
