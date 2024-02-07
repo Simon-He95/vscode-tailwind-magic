@@ -309,6 +309,19 @@ describe('should', () => {
     expect(
       transformClass('<500px:(border#eee)')).toMatchInlineSnapshot('"min-[500px]:border-[#eee] min-[500px]:border min-[500px]:border-solid"')
   })
+
+  it('columns', () => {
+    expect(
+      transform('class="col-1"')).toMatchInlineSnapshot('"class=\\"columns-1\\""')
+    expect(
+      transform('class="col-1px"')).toMatchInlineSnapshot('"class=\\"columns-[1px]\\""')
+    expect(
+      transform('class="col-1rem"')).toMatchInlineSnapshot('"class=\\"columns-[1rem]\\""')
+    expect(
+      transform('class="col-1!"')).toMatchInlineSnapshot('"class=\\"!columns-1\\""')
+    expect(
+      transform('class="col-1rem!"')).toMatchInlineSnapshot('"class=\\"!columns-[1rem]\\""')
+  })
 })
 
 describe('transformClassAttr', () => {
