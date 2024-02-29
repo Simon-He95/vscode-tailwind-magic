@@ -150,6 +150,10 @@ describe('should', () => {
     expect(
       transform('class="wfull!"')).toMatchInlineSnapshot('"class=\\"!w-full\\""')
   })
+  it('wh', () => {
+    expect(
+      transform('class="whfull!"')).toMatchInlineSnapshot('"class=\\"!w-full !h-full\\""')
+  })
   it('base', () => {
     expect(
       transform('class="flex-between"')).toMatchInlineSnapshot('"class=\\"flex justify-between\\""')
