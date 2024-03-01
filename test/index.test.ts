@@ -160,13 +160,13 @@ describe('should', () => {
   })
   it('base', () => {
     expect(
-      transform('class="flex-between"')).toMatchInlineSnapshot('"class=\\"flex justify-between\\""')
+      transform('class="flex-between"')).toMatchInlineSnapshot('"class=\\"justify-between\\""')
   })
   it('base', () => {
     expect(
-      transform('class="x-center"')).toMatchInlineSnapshot('"class=\\"flex justify-center\\""')
+      transform('class="x-center"')).toMatchInlineSnapshot('"class=\\"justify-center\\""')
     expect(
-      transform('class="y-center"')).toMatchInlineSnapshot('"class=\\"flex items-center\\""')
+      transform('class="y-center"')).toMatchInlineSnapshot('"class=\\"items-center\\""')
     expect(
       transform('class="flex-col x-center"')).toMatchInlineSnapshot('"class=\\"flex flex-col items-center\\""')
     expect(
@@ -279,6 +279,10 @@ describe('should', () => {
   it('hover', () => {
     expect(
       transform(':class="hover:(flex-center) w10"')).toMatchInlineSnapshot('":class=\\"hover:flex hover:justify-center hover:items-center w-10\\""')
+  })
+  it('xl:', () => {
+    expect(
+      transform(':class="xl:flex-center"')).toMatchInlineSnapshot('":class=\\"xl:flex xl:justify-center xl:items-center\\""')
   })
 
   it('justify', () => {
