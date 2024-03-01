@@ -142,6 +142,10 @@ describe('should', () => {
     expect(
       transform('class="bb#fff"')).toMatchInlineSnapshot('"class=\\"border-b-[#fff] border-transparent\\""')
   })
+  it('border-b', () => {
+    expect(
+      transform('class="border-b#eeee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eeee]\\""')
+  })
   it('bg', () => {
     expect(
       transform('class="bg#fff!"')).toMatchInlineSnapshot('"class=\\"!bg-[#fff]\\""')
@@ -157,6 +161,16 @@ describe('should', () => {
   it('base', () => {
     expect(
       transform('class="flex-between"')).toMatchInlineSnapshot('"class=\\"flex justify-between\\""')
+  })
+  it('base', () => {
+    expect(
+      transform('class="x-center"')).toMatchInlineSnapshot('"class=\\"flex justify-center\\""')
+    expect(
+      transform('class="y-center"')).toMatchInlineSnapshot('"class=\\"flex items-center\\""')
+    expect(
+      transform('class="flex-col x-center"')).toMatchInlineSnapshot('"class=\\"flex flex-col items-center\\""')
+    expect(
+      transform('class="flex-col y-center"')).toMatchInlineSnapshot('"class=\\"flex flex-col justify-center\\""')
   })
   it('base', () => {
     expect(
