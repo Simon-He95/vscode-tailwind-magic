@@ -17,6 +17,15 @@
 
 ![demo](assets/demo.gif)
 
+## 💰 收费计划
+- 目前插件需要激活码才可以正常运行
+
+- 针对还没体验过的用户，可以在 [discord](https://discord.com/invite/ZnjxzMKWNW) 上找我获取一个月的免费体验资格
+
+- 目前计划 9.9/月，100/年
+
+- 任何插件上的 `bug` 或者 `suggestion` 都可以在 `discord` 上交流，也可以加我 wx：`www674949287`，拉你进 wx 群
+
 ## 💪 目前处理类型
 - calc
 - rgb[a]
@@ -38,6 +47,7 @@
 - hover:(text-red bg-blue) -> hover:text-red hover:bg-blue
 - \>500px:w10px -> max-[500px]:w-[10px]
 - <500px:w10px -> min-[500px]:w-[10px]
+- whfull -> w-full h-full
 
 
 ## 参数配置
@@ -65,6 +75,11 @@
           "type": "array",
           "default": [],
           "description": "set transform rules"
+        },
+        "tailwindMagic.code": {
+          "type": "boolean",
+          "default": "",
+          "description": "activation code"
         }
       }
 ```

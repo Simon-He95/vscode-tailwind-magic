@@ -58,13 +58,19 @@
           "default": [],
           "description": "set transform rules"
         },
-        "tailwind-magic.code": {
+        "tailwindMagic.code": {
           "type": "boolean",
           "default": "",
           "description": "activation code"
         }
       }
-    }
+    },
+    "commands": [
+      {
+        "command": "vscode-tailwind-magic.activation",
+        "title": "activation vscode-tailwind-magic"
+      }
+    ]
   },
   "scripts": {
     "dev": "pnpm build --watch",
@@ -84,7 +90,7 @@
     "@unocss/core": "^0.56.5",
     "@unocss/preset-attributify": "^0.56.5",
     "@unocss/preset-uno": "^0.56.5",
-    "@vscode-use/utils": "^0.0.84",
+    "@vscode-use/utils": "^0.0.89",
     "@vue/compiler-sfc": "^3.3.4",
     "axios": "^1.6.3",
     "bumpp": "^9.1.0",

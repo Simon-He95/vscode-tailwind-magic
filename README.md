@@ -19,6 +19,14 @@
 
 ![demo](assets/demo.gif)
 
+## 💰 Charge plan
+- At present, the plug-in requires an activation code to run normally.
+
+- For users who haven't experienced it yet, you can find me on [discord](https://discord.com/invite/ZnjxzMKWNW) to get a one-month free experience qualification.
+
+- Current plan 9.9/month, 100/year
+- Any `bug` or `suggestion` on the plugin can be communicated on `discord`, or add me wx: `www674949287`, pull you into the wx group
+
 ## 💪 Current processing type
 - calc
 - rgb[a]
@@ -40,6 +48,7 @@
 - hover:(text-red bg-blue) -> hover:text-red hover:bg-blue
 - \>500px:w10px -> max-[500px]:w-[10px]
 - <500px:(w10px h20px) -> min-[500px]:w-[10px] min-[500px]:h-[20px]
+- whfull -> w-full h-full
 
 
 ## Configuration
@@ -67,6 +76,11 @@
           "type": "array",
           "default": [],
           "description": "set transform rules"
+        },
+        "tailwindMagic.code": {
+          "type": "boolean",
+          "default": "",
+          "description": "activation code"
         }
       }
 ```
