@@ -15,7 +15,11 @@ describe('should', () => {
     expect(transform('class="pointer pointer-none"')).toMatchInlineSnapshot('"class=\\"cursor-pointer pointer-events-none\\""')
   })
   it('border', () => {
-    expect(transform('class="border-rd-1"')).toMatchInlineSnapshot('"class=\\"rounded-1\\""')
+    expect(transform('class="brd-1"')).toMatchInlineSnapshot('"class=\\"rounded-1\\""')
+    expect(transform('class="br1"')).toMatchInlineSnapshot('"class=\\"border-r\\""')
+    expect(transform('class="bl1"')).toMatchInlineSnapshot('"class=\\"border-l\\""')
+    expect(transform('class="bt1"')).toMatchInlineSnapshot('"class=\\"border-t\\""')
+    expect(transform('class="bb1"')).toMatchInlineSnapshot('"class=\\"border-b\\""')
   })
   it('left', () => {
     expect(transform('class="-left-50%"')).toMatchInlineSnapshot('"class=\\"-left-[50%]\\""')
