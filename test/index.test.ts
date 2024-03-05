@@ -278,8 +278,19 @@ describe('should', () => {
   })
   it('hover', () => {
     expect(
-      transform(':class="hover:(flex-center) w10"')).toMatchInlineSnapshot('":class=\\"hover:flex hover:justify-center hover:items-center w-10\\""')
+      transform(':class="hover:(flex-center col) w10"')).toMatchInlineSnapshot('":class=\\"hover:flex hover:justify-center hover:items-center hover:flex flex-col w-10\\""')
   })
+  it('flex', () => {
+    expect(
+      transform(':class="flex-(center col)"')).toMatchInlineSnapshot('":class=\\"flex-(center col)\\""')
+  })
+  it('hover', () => {
+    expect(
+      transformClass('hover:(w20px,h30px)')).toMatchInlineSnapshot('"hover:w-[20px] hover:h-[30px]"')
+    expect(
+      transformClass('text-[red,hover:yellow]')).toMatchInlineSnapshot('"text-red hover:text-yellow"')
+  })
+
   it('xl:', () => {
     expect(
       transform(':class="xl:flex-center"')).toMatchInlineSnapshot('":class=\\"xl:flex xl:justify-center xl:items-center\\""')
