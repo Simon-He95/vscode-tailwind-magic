@@ -11,6 +11,7 @@ describe('should', () => {
   it('base', () => {
     expect(transform('class="h-10 w-calc(100%-10px) max-w-1"')).toMatchInlineSnapshot('"class=\\"h-10 w-[calc(100%-10px)] max-w-1\\""')
     expect(transform('class="wh10px!"')).toMatchInlineSnapshot('"class=\\"!w-[10px] !h-[10px]\\""')
+    expect(transform('class="wh10!"')).toMatchInlineSnapshot('"class=\\"!w-10 !h-10\\""')
   })
   it('pointer', () => {
     expect(transform('class="pointer pointer-none"')).toMatchInlineSnapshot('"class=\\"cursor-pointer pointer-events-none\\""')
