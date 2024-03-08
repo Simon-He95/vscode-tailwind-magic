@@ -10,6 +10,7 @@ describe('should', () => {
   })
   it('base', () => {
     expect(transform('class="h-10 w-calc(100%-10px) max-w-1"')).toMatchInlineSnapshot('"class=\\"h-10 w-[calc(100%-10px)] max-w-1\\""')
+    expect(transform('class="wh10px!"')).toMatchInlineSnapshot('"class=\\"!w-[10px] !h-[10px]\\""')
   })
   it('pointer', () => {
     expect(transform('class="pointer pointer-none"')).toMatchInlineSnapshot('"class=\\"cursor-pointer pointer-events-none\\""')
@@ -358,6 +359,19 @@ describe('should', () => {
       transform('class="col-1!"')).toMatchInlineSnapshot('"class=\\"!columns-1\\""')
     expect(
       transform('class="col-1rem!"')).toMatchInlineSnapshot('"class=\\"!columns-[1rem]\\""')
+  })
+
+  it('clip', () => {
+    expect(
+      transform('class="clip"')).toMatchInlineSnapshot('"class=\\"text-clip\\""')
+    expect(
+      transform('class="clip-text"')).toMatchInlineSnapshot('"class=\\"bg-clip-text\\""')
+    expect(
+      transform('class="clip-border"')).toMatchInlineSnapshot('"class=\\"bg-clip-border\\""')
+    expect(
+      transform('class="clip-content!"')).toMatchInlineSnapshot('"class=\\"!bg-clip-content\\""')
+    expect(
+      transform('class="clip-padding!"')).toMatchInlineSnapshot('"class=\\"!bg-clip-padding\\""')
   })
 })
 
