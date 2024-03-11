@@ -293,6 +293,11 @@ describe('should', () => {
   })
   it('hover', () => {
     expect(
+      transform(':class="hover:bg-[#999]  hover:(font800 text-red)"')).toMatchInlineSnapshot('":class=\\"hover:bg-[#999]  hover:font-extrabold hover:text-red\\""')
+  })
+
+  it('hover', () => {
+    expect(
       transform(':class="hover:(flex-center col) w10"')).toMatchInlineSnapshot('":class=\\"hover:flex hover:justify-center hover:items-center hover:flex flex-col w-10\\""')
   })
   it('flex', () => {
