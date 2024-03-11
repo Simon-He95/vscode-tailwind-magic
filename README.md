@@ -50,12 +50,11 @@
 - <500px:(w10px h20px) -> min-[500px]:w-[10px] min-[500px]:h-[20px]
 - whfull -> w-full h-full
 
-
 ## Configuration
 - You can use config to control some matching rules, such as strict-splicing, or the generated calculation result is `-[10px]` or `-10px`
 - attributifyMode defaults true, turn on the ability to automatically convert tailwind attributes into class, just like the writing of attributify of unuchs, which automatically converts after saving.
 
-``` json
+``` typescript
       "properties": {
         "tailwindMagic.variantGroup": {
           "type": "boolean",

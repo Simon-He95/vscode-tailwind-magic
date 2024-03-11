@@ -49,12 +49,11 @@
 - <500px:w10px -> min-[500px]:w-[10px]
 - whfull -> w-full h-full
 
-
 ## 参数配置
 - 您可以使用配置来控制一些匹配规则，例如严格拆分，或者生成的计算结果是`-[10px]`或`-10px`
 - attributifyMode 默认 true，开启tailwind 属性自动转换成class的能力，就像unocss的attributify的写法，保存后自动转换
 
-``` json
+``` typescript
       "properties": {
         "tailwindMagic.variantGroup": {
           "type": "boolean",

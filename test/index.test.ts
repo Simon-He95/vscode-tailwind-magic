@@ -50,6 +50,9 @@ describe('should', () => {
   it('dark', () => {
     expect(transform('class="dark:md:hover:w10"')).toMatchInlineSnapshot('"class=\\"dark:md:hover:w-10\\""')
   })
+  it('hover:', () => {
+    expect(transform('class="bg-[#333] w-full h-40 hover:bg-[#999] hover:(text20px text-[#123] font800)""')).toMatchInlineSnapshot('"class=\\"bg-[#333] w-full h-40 hover:bg-[#999] hover:text-[20px] hover:text-[#123] hover:font-extrabold\\"\\""')
+  })
   it('w', () => {
     expect(transform('class="w10!"')).toMatchInlineSnapshot('"class=\\"!w-10\\""')
   })
@@ -75,7 +78,8 @@ describe('should', () => {
     expect(
       transform(`class="bg#fff
                                   maxh10px
-                                   minw10px"`)).toMatchInlineSnapshot(`
+                                   minw10px"`),
+    ).toMatchInlineSnapshot(`
                                      "class=\\"bg-[#fff]
                                                                        max-h-[10px]
                                                                         min-w-[10px]\\""
@@ -83,41 +87,50 @@ describe('should', () => {
   })
   it('translate', () => {
     expect(
-      transform('class="-translatex50%"')).toMatchInlineSnapshot('"class=\\"-translate-x-[50%]\\""')
+      transform('class="-translatex50%"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[50%]\\""')
   })
 
   it('text', () => {
     expect(
-      transform('class="text-18px"')).toMatchInlineSnapshot('"class=\\"text-[18px]\\""')
+      transform('class="text-18px"'),
+    ).toMatchInlineSnapshot('"class=\\"text-[18px]\\""')
   })
 
   it('grid', () => {
     expect(
-      transform('class="gridx4"')).toMatchInlineSnapshot('"class=\\"grid-row-4 grid grid-flow-col\\""')
+      transform('class="gridx4"'),
+    ).toMatchInlineSnapshot('"class=\\"grid-row-4 grid grid-flow-col\\""')
     expect(
-      transform('class="gridy4"')).toMatchInlineSnapshot('"class=\\"grid-cols-4 grid grid-flow-row\\""')
+      transform('class="gridy4"'),
+    ).toMatchInlineSnapshot('"class=\\"grid-cols-4 grid grid-flow-row\\""')
     expect(
-      transform('class="gridy4x2"')).toMatchInlineSnapshot('"class=\\"grid-cols-2 grid-rows-4 grid\\""')
+      transform('class="gridy4x2"'),
+    ).toMatchInlineSnapshot('"class=\\"grid-cols-2 grid-rows-4 grid\\""')
   })
 
   it('m', () => {
     expect(
-      transform('class="ma mxa mya"')).toMatchInlineSnapshot('"class=\\"m-auto mx-auto my-auto\\""')
+      transform('class="ma mxa mya"'),
+    ).toMatchInlineSnapshot('"class=\\"m-auto mx-auto my-auto\\""')
   })
 
   it('w', () => {
     expect(
-      transform('class="w-rgba(1,1,1,1)"')).toMatchInlineSnapshot('"class=\\"w-[rgba(1,1,1,1)]\\""')
+      transform('class="w-rgba(1,1,1,1)"'),
+    ).toMatchInlineSnapshot('"class=\\"w-[rgba(1,1,1,1)]\\""')
   })
 
   it('text', () => {
     expect(
-      transform('class="text-[red,hover:pink,2xl,lg:hover:3xl]"')).toMatchInlineSnapshot('"class=\\"text-red hover:text-pink text-2xl lg:hover:text-3xl\\""')
+      transform('class="text-[red,hover:pink,2xl,lg:hover:3xl]"'),
+    ).toMatchInlineSnapshot('"class=\\"text-red hover:text-pink text-2xl lg:hover:text-3xl\\""')
   })
 
   it('text', () => {
     expect(
-      transform('class="text-[rgba(1,1,1,1),hover:pink,2xl,lg:hover:3xl]"')).toMatchInlineSnapshot('"class=\\"text-[rgba(1,1,1,1)] hover:text-pink text-2xl lg:hover:text-3xl\\""')
+      transform('class="text-[rgba(1,1,1,1),hover:pink,2xl,lg:hover:3xl]"'),
+    ).toMatchInlineSnapshot('"class=\\"text-[rgba(1,1,1,1)] hover:text-pink text-2xl lg:hover:text-3xl\\""')
   })
   it('bg', () => {
     expect(transform('class="bg-hsl(150 , 30% , 60% , 0.8)"')).toMatchInlineSnapshot('"class=\\"bg-[hsl(150,30%,60%,0.8)]\\""')
@@ -131,262 +144,337 @@ describe('should', () => {
   })
   it('-[a,b,c]', () => {
     expect(
-      transform('class="text-[rgba(1,1,1,1),hover:pink,2xl,lg:hover:3xl]"')).toMatchInlineSnapshot('"class=\\"text-[rgba(1,1,1,1)] hover:text-pink text-2xl lg:hover:text-3xl\\""')
+      transform('class="text-[rgba(1,1,1,1),hover:pink,2xl,lg:hover:3xl]"'),
+    ).toMatchInlineSnapshot('"class=\\"text-[rgba(1,1,1,1)] hover:text-pink text-2xl lg:hover:text-3xl\\""')
   })
   it('bg', () => {
     expect(
-      transform('class="bg-[rgba(2,2,2,2]"')).toMatchInlineSnapshot('"class=\\"bg-[rgba(2,2,2,2]\\""')
+      transform('class="bg-[rgba(2,2,2,2]"'),
+    ).toMatchInlineSnapshot('"class=\\"bg-[rgba(2,2,2,2]\\""')
   })
   it('w', () => {
     expect(
-      transform('class="w-[full,lg:50%,calc(10vw - 20px * 2px)]"')).toMatchInlineSnapshot('"class=\\"w-full lg:w-[50%] w-[calc(10vw-20px*2px)]\\""')
+      transform('class="w-[full,lg:50%,calc(10vw - 20px * 2px)]"'),
+    ).toMatchInlineSnapshot('"class=\\"w-full lg:w-[50%] w-[calc(10vw-20px*2px)]\\""')
   })
   it('text', () => {
     expect(
-      transform('class="text16rpx w16rpx"')).toMatchInlineSnapshot('"class=\\"text-[length:16rpx] w-[16rpx]\\""')
+      transform('class="text16rpx w16rpx"'),
+    ).toMatchInlineSnapshot('"class=\\"text-[length:16rpx] w-[16rpx]\\""')
   })
   it('brd', () => {
     expect(
-      transform('class="brd32rpx"')).toMatchInlineSnapshot('"class=\\"rounded-[32rpx]\\""')
+      transform('class="brd32rpx"'),
+    ).toMatchInlineSnapshot('"class=\\"rounded-[32rpx]\\""')
   })
   it('flex', () => {
     expect(
-      transform('class="flex1"')).toMatchInlineSnapshot('"class=\\"flex-1\\""')
+      transform('class="flex1"'),
+    ).toMatchInlineSnapshot('"class=\\"flex-1\\""')
   })
   it('bb', () => {
     expect(
-      transform('class="bb#fff"')).toMatchInlineSnapshot('"class=\\"border-b-[#fff] border-transparent\\""')
+      transform('class="bb#fff"'),
+    ).toMatchInlineSnapshot('"class=\\"border-b-[#fff] border-transparent\\""')
   })
   it('border-b', () => {
     expect(
-      transform('class="border-b#eeee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eeee]\\""')
+      transform('class="border-b#eeee"'),
+    ).toMatchInlineSnapshot('"class=\\"border-b-[#eeee]\\""')
   })
   it('bg', () => {
     expect(
-      transform('class="bg#fff!"')).toMatchInlineSnapshot('"class=\\"!bg-[#fff]\\""')
+      transform('class="bg#fff!"'),
+    ).toMatchInlineSnapshot('"class=\\"!bg-[#fff]\\""')
   })
   it('w', () => {
     expect(
-      transform('class="wfull!"')).toMatchInlineSnapshot('"class=\\"!w-full\\""')
+      transform('class="wfull!"'),
+    ).toMatchInlineSnapshot('"class=\\"!w-full\\""')
   })
   it('wh', () => {
     expect(
-      transform('class="whfull!"')).toMatchInlineSnapshot('"class=\\"!w-full !h-full\\""')
+      transform('class="whfull!"'),
+    ).toMatchInlineSnapshot('"class=\\"!w-full !h-full\\""')
   })
   it('base', () => {
     expect(
-      transform('class="flex-between"')).toMatchInlineSnapshot('"class=\\"justify-between\\""')
+      transform('class="flex-between"'),
+    ).toMatchInlineSnapshot('"class=\\"justify-between\\""')
   })
   it('base', () => {
     expect(
-      transform('class="x-center"')).toMatchInlineSnapshot('"class=\\"justify-center\\""')
+      transform('class="x-center"'),
+    ).toMatchInlineSnapshot('"class=\\"justify-center\\""')
     expect(
-      transform('class="y-center"')).toMatchInlineSnapshot('"class=\\"items-center\\""')
+      transform('class="y-center"'),
+    ).toMatchInlineSnapshot('"class=\\"items-center\\""')
     expect(
-      transform('class="flex-col x-center"')).toMatchInlineSnapshot('"class=\\"flex flex-col items-center\\""')
+      transform('class="flex-col x-center"'),
+    ).toMatchInlineSnapshot('"class=\\"flex flex-col items-center\\""')
     expect(
-      transform('class="flex-col y-center"')).toMatchInlineSnapshot('"class=\\"flex flex-col justify-center\\""')
+      transform('class="flex-col y-center"'),
+    ).toMatchInlineSnapshot('"class=\\"flex flex-col justify-center\\""')
   })
   it('base', () => {
     expect(
-      transform('class="border-rgba(1,1,1,1)"')).toMatchInlineSnapshot('"class=\\"border-[rgba(1,1,1,1)] border border-solid\\""')
+      transform('class="border-rgba(1,1,1,1)"'),
+    ).toMatchInlineSnapshot('"class=\\"border-[rgba(1,1,1,1)] border border-solid\\""')
   })
   it('base', () => {
     expect(
-      transform('class="border-[rgba(1,1,1,1)] border-solid"')).toMatchInlineSnapshot('"class=\\"border-[rgba(1,1,1,1)] border border-solid\\""')
+      transform('class="border-[rgba(1,1,1,1)] border-solid"'),
+    ).toMatchInlineSnapshot('"class=\\"border-[rgba(1,1,1,1)] border border-solid\\""')
   })
   it('base', () => {
     expect(
-      transform('class="h-full text-[red,14px,dark:yellow]"')).toMatchInlineSnapshot('"class=\\"h-full text-red text-[14px] dark:text-yellow\\""')
+      transform('class="h-full text-[red,14px,dark:yellow]"'),
+    ).toMatchInlineSnapshot('"class=\\"h-full text-red text-[14px] dark:text-yellow\\""')
   })
   it('base', () => {
     expect(
-      transform('class="h-full text-[red,14px,dark:#fff]"')).toMatchInlineSnapshot('"class=\\"h-full text-red text-[14px] dark:text-[#fff]\\""')
+      transform('class="h-full text-[red,14px,dark:#fff]"'),
+    ).toMatchInlineSnapshot('"class=\\"h-full text-red text-[14px] dark:text-[#fff]\\""')
   })
   it('base', () => {
     expect(
-      transform('class="h-full text-[red,14px,dark:rgba(1,1,1,1)]"')).toMatchInlineSnapshot('"class=\\"h-full text-red text-[14px] dark:text-[rgba(1,1,1,1)]\\""')
+      transform('class="h-full text-[red,14px,dark:rgba(1,1,1,1)]"'),
+    ).toMatchInlineSnapshot('"class=\\"h-full text-red text-[14px] dark:text-[rgba(1,1,1,1)]\\""')
   })
   it('border', () => {
     expect(
-      transform('class="border-solid"')).toMatchInlineSnapshot('"class=\\"border-solid\\""')
+      transform('class="border-solid"'),
+    ).toMatchInlineSnapshot('"class=\\"border-solid\\""')
   })
   it('border', () => {
     expect(
-      transform('class="border#333"')).toMatchInlineSnapshot('"class=\\"border-[#333] border border-solid\\""')
+      transform('class="border#333"'),
+    ).toMatchInlineSnapshot('"class=\\"border-[#333] border border-solid\\""')
   })
   it('text + calc', () => {
     expect(
-      transform('class="textcalc(100px - 20px)"')).toMatchInlineSnapshot('"class=\\"text-[calc(100px-20px)]\\""')
+      transform('class="textcalc(100px - 20px)"'),
+    ).toMatchInlineSnapshot('"class=\\"text-[calc(100px-20px)]\\""')
   })
   it('space', () => {
     expect(
-      transform('class="spacex10px"')).toMatchInlineSnapshot('"class=\\"space-x-[10px]\\""')
+      transform('class="spacex10px"'),
+    ).toMatchInlineSnapshot('"class=\\"space-x-[10px]\\""')
   })
   it('space', () => {
     expect(
-      transform('class="space-y-10px"')).toMatchInlineSnapshot('"class=\\"space-y-[10px]\\""')
+      transform('class="space-y-10px"'),
+    ).toMatchInlineSnapshot('"class=\\"space-y-[10px]\\""')
   })
   it('fill', () => {
     expect(
-      transform('class="fill#fff"')).toMatchInlineSnapshot('"class=\\"fill-[#fff]\\""')
+      transform('class="fill#fff"'),
+    ).toMatchInlineSnapshot('"class=\\"fill-[#fff]\\""')
   })
   it('stroke', () => {
     expect(
-      transform('class="stroke#fff"')).toMatchInlineSnapshot('"class=\\"stroke-[#fff]\\""')
+      transform('class="stroke#fff"'),
+    ).toMatchInlineSnapshot('"class=\\"stroke-[#fff]\\""')
   })
   it('aspect', () => {
     expect(
-      transform('class="aspect16/9"')).toMatchInlineSnapshot('"class=\\"aspect-video\\""')
+      transform('class="aspect16/9"'),
+    ).toMatchInlineSnapshot('"class=\\"aspect-video\\""')
   })
   it('translate', () => {
     expect(
-      transform('class="-translatex10px"')).toMatchInlineSnapshot('"class=\\"-translate-x-[10px]\\""')
+      transform('class="-translatex10px"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[10px]\\""')
   })
   it('translate', () => {
     expect(
-      transform('class="-translatex10px"')).toMatchInlineSnapshot('"class=\\"-translate-x-[10px]\\""')
+      transform('class="-translatex10px"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[10px]\\""')
   })
   it('translate + calc', () => {
     expect(
-      transform('class="-translatex-calc(100% - 20px)"')).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
+      transform('class="-translatex-calc(100% - 20px)"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
   })
   it('translate + calc', () => {
     expect(
-      transform('class="-translatex-calc(100% - 20px)"')).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
+      transform('class="-translatex-calc(100% - 20px)"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
   })
   it('translate + calc', () => {
     expect(
-      transform('class="-translatex-[calc(100% - 20px)]"')).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
+      transform('class="-translatex-[calc(100% - 20px)]"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
   })
   it('translate', () => {
     expect(
-      transform('class="-translatex-10px"')).toMatchInlineSnapshot('"class=\\"-translate-x-[10px]\\""')
+      transform('class="-translatex-10px"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[10px]\\""')
   })
   it('translate', () => {
     expect(
-      transform('class="-translatex-calc(100% - 20px)"')).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
+      transform('class="-translatex-calc(100% - 20px)"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
   })
   it('translate', () => {
     expect(
-      transform('class="-translatexcalc(100% - 20px)"')).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
+      transform('class="-translatexcalc(100% - 20px)"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[calc(100%-20px)]\\""')
   })
   it('class with 10/5', () => {
     expect(
-      transform('class="w10/5"')).toMatchInlineSnapshot('"class=\\"w-10/5\\""')
+      transform('class="w10/5"'),
+    ).toMatchInlineSnapshot('"class=\\"w-10/5\\""')
   })
   it('bind class', () => {
     expect(
-      transform(':class="[isFullScreen ? \'hfull\' : \'h400px\']"')).toMatchInlineSnapshot('":class=\\"[isFullScreen ? \'h-full\' : \'h-[400px]\']\\""')
+      transform(':class="[isFullScreen ? \'hfull\' : \'h400px\']"'),
+    ).toMatchInlineSnapshot('":class=\\"[isFullScreen ? \'h-full\' : \'h-[400px]\']\\""')
   })
   it('bind class', () => {
     expect(
-      transform(':class="[item.type === \'warning\' ? \'text#eee\' : \'textrgb(127,127,127)\']"')).toMatchInlineSnapshot('":class=\\"[item.type === \'warning\' ? \'text-[#eee]\' : \'text-[rgb(127,127,127)]\']\\""')
+      transform(':class="[item.type === \'warning\' ? \'text#eee\' : \'textrgb(127,127,127)\']"'),
+    ).toMatchInlineSnapshot('":class=\\"[item.type === \'warning\' ? \'text-[#eee]\' : \'text-[rgb(127,127,127)]\']\\""')
   })
   it('calc', () => {
     expect(
-      transform(':class="[\'hcalc(100vh-104px)\']"')).toMatchInlineSnapshot('":class=\\"[\'h-[calc(100vh-104px)]\']\\""')
+      transform(':class="[\'hcalc(100vh-104px)\']"'),
+    ).toMatchInlineSnapshot('":class=\\"[\'h-[calc(100vh-104px)]\']\\""')
   })
   it('hover', () => {
     expect(
-      transform(':class="hover:(text-white rounded)"')).toMatchInlineSnapshot('":class=\\"hover:text-white hover:rounded\\""')
+      transform(':class="hover:(text-white rounded)"'),
+    ).toMatchInlineSnapshot('":class=\\"hover:text-white hover:rounded\\""')
   })
   it('hover', () => {
     expect(
-      transform(':class="hover:bg-[#999]  hover:(font800 text-red)"')).toMatchInlineSnapshot('":class=\\"hover:bg-[#999]  hover:font-extrabold hover:text-red\\""')
+      transform(':class="hover:bg-[#999]  hover:(font800 text-red)"'),
+    ).toMatchInlineSnapshot('":class=\\"hover:bg-[#999]  hover:font-extrabold hover:text-red\\""')
   })
 
   it('hover', () => {
     expect(
-      transform(':class="hover:(flex-center col) w10"')).toMatchInlineSnapshot('":class=\\"hover:flex hover:justify-center hover:items-center hover:flex flex-col w-10\\""')
+      transform(':class="hover:(flex-center col) w10"'),
+    ).toMatchInlineSnapshot('":class=\\"hover:flex hover:justify-center hover:items-center hover:flex flex-col w-10\\""')
   })
   it('flex', () => {
     expect(
-      transform(':class="flex-(center col)"')).toMatchInlineSnapshot('":class=\\"flex-(center col)\\""')
+      transform(':class="flex-(center col)"'),
+    ).toMatchInlineSnapshot('":class=\\"flex-(center col)\\""')
   })
   it('hover', () => {
     expect(
-      transformClass('hover:(w20px,h30px)')).toMatchInlineSnapshot('"hover:w-[20px] hover:h-[30px]"')
+      transformClass('hover:(w20px,h30px)'),
+    ).toMatchInlineSnapshot('"hover:w-[20px] hover:h-[30px]"')
     expect(
-      transformClass('text-[red,hover:yellow]')).toMatchInlineSnapshot('"text-red hover:text-yellow"')
+      transformClass('text-[red,hover:yellow]'),
+    ).toMatchInlineSnapshot('"text-red hover:text-yellow"')
   })
 
   it('xl:', () => {
     expect(
-      transform(':class="xl:flex-center"')).toMatchInlineSnapshot('":class=\\"xl:flex xl:justify-center xl:items-center\\""')
+      transform(':class="xl:flex-center"'),
+    ).toMatchInlineSnapshot('":class=\\"xl:flex xl:justify-center xl:items-center\\""')
   })
 
   it('justify', () => {
     expect(
-      transform(':class="justify-r"')).toMatchInlineSnapshot('":class=\\"justify-end\\""')
+      transform(':class="justify-r"'),
+    ).toMatchInlineSnapshot('":class=\\"justify-end\\""')
     expect(
-      transform(':class="justify-l"')).toMatchInlineSnapshot('":class=\\"justify-start\\""')
+      transform(':class="justify-l"'),
+    ).toMatchInlineSnapshot('":class=\\"justify-start\\""')
   })
 
   it('from', () => {
     expect(
-      transform('class="from10% from10 -from10% from--10%"')).toMatchInlineSnapshot('"class=\\"from-[10%] from-10 -from-[10%] -from-[10%]\\""')
+      transform('class="from10% from10 -from10% from--10%"'),
+    ).toMatchInlineSnapshot('"class=\\"from-[10%] from-10 -from-[10%] -from-[10%]\\""')
   })
   it('from', () => {
     expect(
-      transform('class="w95% w-95% -w10% w95px"')).toMatchInlineSnapshot('"class=\\"w-[95%] w-[95%] -w-[10%] w-[95px]\\""')
+      transform('class="w95% w-95% -w10% w95px"'),
+    ).toMatchInlineSnapshot('"class=\\"w-[95%] w-[95%] -w-[10%] w-[95px]\\""')
   })
   it('screen', () => {
     expect(
-      transform('class=">500px:w-10px w-20px"')).toMatchInlineSnapshot('"class=\\"max-[500px]:w-[10px] w-[20px]\\""')
+      transform('class=">500px:w-10px w-20px"'),
+    ).toMatchInlineSnapshot('"class=\\"max-[500px]:w-[10px] w-[20px]\\""')
     expect(
-      transform('class="w10px >500px:w-10px w-20px"')).toMatchInlineSnapshot('"class=\\"w-[10px] max-[500px]:w-[10px] w-[20px]\\""')
+      transform('class="w10px >500px:w-10px w-20px"'),
+    ).toMatchInlineSnapshot('"class=\\"w-[10px] max-[500px]:w-[10px] w-[20px]\\""')
     expect(
-      transform('class=" >500px:w-10px w-20px"')).toMatchInlineSnapshot('"class=\\" max-[500px]:w-[10px] w-[20px]\\""')
+      transform('class=" >500px:w-10px w-20px"'),
+    ).toMatchInlineSnapshot('"class=\\" max-[500px]:w-[10px] w-[20px]\\""')
     expect(
-      transform('class="w10px <500px:w10px w-20px"')).toMatchInlineSnapshot('"class=\\"w-[10px] min-[500px]:w-[10px] w-[20px]\\""')
+      transform('class="w10px <500px:w10px w-20px"'),
+    ).toMatchInlineSnapshot('"class=\\"w-[10px] min-[500px]:w-[10px] w-[20px]\\""')
     expect(
-      transform('class="w10px md:w10px w-20px"')).toMatchInlineSnapshot('"class=\\"w-[10px] md:w-[10px] w-[20px]\\""')
+      transform('class="w10px md:w10px w-20px"'),
+    ).toMatchInlineSnapshot('"class=\\"w-[10px] md:w-[10px] w-[20px]\\""')
   })
 
   it('multiple attrs', () => {
     expect(
-      transform('class="md:(w10px h20px)"')).toMatchInlineSnapshot('"class=\\"md:w-[10px] md:h-[20px]\\""')
+      transform('class="md:(w10px h20px)"'),
+    ).toMatchInlineSnapshot('"class=\\"md:w-[10px] md:h-[20px]\\""')
     expect(
-      transform('class="hover:(text-red bg-blue)"')).toMatchInlineSnapshot('"class=\\"hover:text-red hover:bg-blue\\""')
+      transform('class="hover:(text-red bg-blue)"'),
+    ).toMatchInlineSnapshot('"class=\\"hover:text-red hover:bg-blue\\""')
     expect(
-      transform('className="hover:(text-red bg-blue)"')).toMatchInlineSnapshot('"className=\\"hover:text-red hover:bg-blue\\""')
+      transform('className="hover:(text-red bg-blue)"'),
+    ).toMatchInlineSnapshot('"className=\\"hover:text-red hover:bg-blue\\""')
     expect(
-      transformClass('hover:(text-red bg-blue)"')).toMatchInlineSnapshot('"hover:text-red hover:bg-blue\\""')
+      transformClass('hover:(text-red bg-blue)"'),
+    ).toMatchInlineSnapshot('"hover:text-red hover:bg-blue\\""')
     expect(
-      transformClass('hover:(text-red bg-blue)')).toMatchInlineSnapshot('"hover:text-red hover:bg-blue"')
+      transformClass('hover:(text-red bg-blue)'),
+    ).toMatchInlineSnapshot('"hover:text-red hover:bg-blue"')
     expect(
-      transformClass('md:(flex-center)')).toMatchInlineSnapshot('"md:flex md:justify-center md:items-center"')
+      transformClass('md:(flex-center)'),
+    ).toMatchInlineSnapshot('"md:flex md:justify-center md:items-center"')
     expect(
-      transformClass('<500px:(flex-center)')).toMatchInlineSnapshot('"min-[500px]:flex min-[500px]:justify-center min-[500px]:items-center"')
+      transformClass('<500px:(flex-center)'),
+    ).toMatchInlineSnapshot('"min-[500px]:flex min-[500px]:justify-center min-[500px]:items-center"')
     expect(
-      transformClass('<500px:(border#eee)')).toMatchInlineSnapshot('"min-[500px]:border-[#eee] min-[500px]:border min-[500px]:border-solid"')
+      transformClass('<500px:(border#eee)'),
+    ).toMatchInlineSnapshot('"min-[500px]:border-[#eee] min-[500px]:border min-[500px]:border-solid"')
   })
 
   it('columns', () => {
     expect(
-      transform('class="col-1"')).toMatchInlineSnapshot('"class=\\"columns-1\\""')
+      transform('class="col-1"'),
+    ).toMatchInlineSnapshot('"class=\\"columns-1\\""')
     expect(
-      transform('class="col-1px"')).toMatchInlineSnapshot('"class=\\"columns-[1px]\\""')
+      transform('class="col-1px"'),
+    ).toMatchInlineSnapshot('"class=\\"columns-[1px]\\""')
     expect(
-      transform('class="col-1rem"')).toMatchInlineSnapshot('"class=\\"columns-[1rem]\\""')
+      transform('class="col-1rem"'),
+    ).toMatchInlineSnapshot('"class=\\"columns-[1rem]\\""')
     expect(
-      transform('class="col-1!"')).toMatchInlineSnapshot('"class=\\"!columns-1\\""')
+      transform('class="col-1!"'),
+    ).toMatchInlineSnapshot('"class=\\"!columns-1\\""')
     expect(
-      transform('class="col-1rem!"')).toMatchInlineSnapshot('"class=\\"!columns-[1rem]\\""')
+      transform('class="col-1rem!"'),
+    ).toMatchInlineSnapshot('"class=\\"!columns-[1rem]\\""')
   })
 
   it('clip', () => {
     expect(
-      transform('class="clip"')).toMatchInlineSnapshot('"class=\\"text-clip\\""')
+      transform('class="clip"'),
+    ).toMatchInlineSnapshot('"class=\\"text-clip\\""')
     expect(
-      transform('class="clip-text"')).toMatchInlineSnapshot('"class=\\"bg-clip-text\\""')
+      transform('class="clip-text"'),
+    ).toMatchInlineSnapshot('"class=\\"bg-clip-text\\""')
     expect(
-      transform('class="clip-border"')).toMatchInlineSnapshot('"class=\\"bg-clip-border\\""')
+      transform('class="clip-border"'),
+    ).toMatchInlineSnapshot('"class=\\"bg-clip-border\\""')
     expect(
-      transform('class="clip-content!"')).toMatchInlineSnapshot('"class=\\"!bg-clip-content\\""')
+      transform('class="clip-content!"'),
+    ).toMatchInlineSnapshot('"class=\\"!bg-clip-content\\""')
     expect(
-      transform('class="clip-padding!"')).toMatchInlineSnapshot('"class=\\"!bg-clip-padding\\""')
+      transform('class="clip-padding!"'),
+    ).toMatchInlineSnapshot('"class=\\"!bg-clip-padding\\""')
   })
 })
 
@@ -448,30 +536,42 @@ describe('transformClass', () => {
 describe('aggressiveMode', () => {
   it('trlbf', () => {
     expect(
-      transform('class="t1"')).toMatchInlineSnapshot('"class=\\"top-1\\""')
+      transform('class="t1"'),
+    ).toMatchInlineSnapshot('"class=\\"top-1\\""')
     expect(
-      transform('class="r10px"')).toMatchInlineSnapshot('"class=\\"right-[10px]\\""')
+      transform('class="r10px"'),
+    ).toMatchInlineSnapshot('"class=\\"right-[10px]\\""')
     expect(
-      transform('class="b2em"')).toMatchInlineSnapshot('"class=\\"bottom-[2em]\\""')
+      transform('class="b2em"'),
+    ).toMatchInlineSnapshot('"class=\\"bottom-[2em]\\""')
     expect(
-      transform('class="t20px!"')).toMatchInlineSnapshot('"class=\\"!top-[20px]\\""')
+      transform('class="t20px!"'),
+    ).toMatchInlineSnapshot('"class=\\"!top-[20px]\\""')
     expect(
-      transform('class="l-1rem!"')).toMatchInlineSnapshot('"class=\\"!left-[1rem]\\""')
+      transform('class="l-1rem!"'),
+    ).toMatchInlineSnapshot('"class=\\"!left-[1rem]\\""')
     expect(
-      transform('class="f200"')).toMatchInlineSnapshot('"class=\\"font-extralight\\""')
+      transform('class="f200"'),
+    ).toMatchInlineSnapshot('"class=\\"font-extralight\\""')
   })
   it('tc | tl | tr | te | tj | ts', () => {
     expect(
-      transform('class="tc"')).toMatchInlineSnapshot('"class=\\"text-center\\""')
+      transform('class="tc"'),
+    ).toMatchInlineSnapshot('"class=\\"text-center\\""')
     expect(
-      transform('class="tl"')).toMatchInlineSnapshot('"class=\\"text-left\\""')
+      transform('class="tl"'),
+    ).toMatchInlineSnapshot('"class=\\"text-left\\""')
     expect(
-      transform('class="tr"')).toMatchInlineSnapshot('"class=\\"text-right\\""')
+      transform('class="tr"'),
+    ).toMatchInlineSnapshot('"class=\\"text-right\\""')
     expect(
-      transform('class="te"')).toMatchInlineSnapshot('"class=\\"text-end\\""')
+      transform('class="te"'),
+    ).toMatchInlineSnapshot('"class=\\"text-end\\""')
     expect(
-      transform('class="tj"')).toMatchInlineSnapshot('"class=\\"text-justify\\""')
+      transform('class="tj"'),
+    ).toMatchInlineSnapshot('"class=\\"text-justify\\""')
     expect(
-      transform('class="ts"')).toMatchInlineSnapshot('"class=\\"text-start\\""')
+      transform('class="ts"'),
+    ).toMatchInlineSnapshot('"class=\\"text-start\\""')
   })
 })
