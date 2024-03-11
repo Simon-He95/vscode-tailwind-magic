@@ -430,3 +430,34 @@ describe('transformClass', () => {
     expect(transformClass('[x?\'m1\':\'item2\'] ')).toMatchInlineSnapshot('"[x?\'m-1\':\'item2\'] "')
   })
 })
+
+describe('aggressiveMode', () => {
+  it('trlbf', () => {
+    expect(
+      transform('class="t1"')).toMatchInlineSnapshot('"class=\\"top-1\\""')
+    expect(
+      transform('class="r10px"')).toMatchInlineSnapshot('"class=\\"right-[10px]\\""')
+    expect(
+      transform('class="b2em"')).toMatchInlineSnapshot('"class=\\"bottom-[2em]\\""')
+    expect(
+      transform('class="t20px!"')).toMatchInlineSnapshot('"class=\\"!top-[20px]\\""')
+    expect(
+      transform('class="l-1rem!"')).toMatchInlineSnapshot('"class=\\"!left-[1rem]\\""')
+    expect(
+      transform('class="f200"')).toMatchInlineSnapshot('"class=\\"font-extralight\\""')
+  })
+  it('tc | tl | tr | te | tj | ts', () => {
+    expect(
+      transform('class="tc"')).toMatchInlineSnapshot('"class=\\"text-center\\""')
+    expect(
+      transform('class="tl"')).toMatchInlineSnapshot('"class=\\"text-left\\""')
+    expect(
+      transform('class="tr"')).toMatchInlineSnapshot('"class=\\"text-right\\""')
+    expect(
+      transform('class="te"')).toMatchInlineSnapshot('"class=\\"text-end\\""')
+    expect(
+      transform('class="tj"')).toMatchInlineSnapshot('"class=\\"text-justify\\""')
+    expect(
+      transform('class="ts"')).toMatchInlineSnapshot('"class=\\"text-start\\""')
+  })
+})
