@@ -91,6 +91,15 @@ describe('should', () => {
       transform('class="text-18px"')).toMatchInlineSnapshot('"class=\\"text-[18px]\\""')
   })
 
+  it('grid', () => {
+    expect(
+      transform('class="gridx4"')).toMatchInlineSnapshot('"class=\\"grid-row-4 grid grid-flow-col\\""')
+    expect(
+      transform('class="gridy4"')).toMatchInlineSnapshot('"class=\\"grid-cols-4 grid grid-flow-row\\""')
+    expect(
+      transform('class="gridy4x2"')).toMatchInlineSnapshot('"class=\\"grid-cols-2 grid-rows-4 grid\\""')
+  })
+
   it('m', () => {
     expect(
       transform('class="ma mxa mya"')).toMatchInlineSnapshot('"class=\\"m-auto mx-auto my-auto\\""')
