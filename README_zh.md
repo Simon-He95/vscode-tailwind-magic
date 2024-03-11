@@ -69,7 +69,7 @@
         "tailwindMagic.attributifyMode": {
           "type": "boolean",
           "default": true,
-          "description": "if true the attribute bg#fff will tranasform class=\"bg-[#fff]\""
+          "description": "if true the attribute bg#fff will transform class=\"bg-[#fff]\""
         },
         "tailwindMagic.presets": {
           "type": "array",
@@ -80,6 +80,11 @@
           "type": "boolean",
           "default": "",
           "description": "activation code"
+        },
+        "tailwindMagic.aggressiveMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "开启激进模式后，可以更加精简一些规则的写法，比如 t1 -> top-1"
         }
       }
 ```

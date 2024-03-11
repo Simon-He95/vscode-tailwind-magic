@@ -70,7 +70,7 @@
         "tailwindMagic.attributifyMode": {
           "type": "boolean",
           "default": true,
-          "description": "if true the attribute bg#fff will tranasform class=\"bg-[#fff]\""
+          "description": "if true the attribute bg#fff will transform class=\"bg-[#fff]\""
         },
         "tailwindMagic.presets": {
           "type": "array",
@@ -81,6 +81,11 @@
           "type": "boolean",
           "default": "",
           "description": "activation code"
+        },
+        "tailwindMagic.aggressiveMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "After turning on aggressive mode, it will be more abbreviated, such as t1 -> top-1"
         }
       }
 ```
