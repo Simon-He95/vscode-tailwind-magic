@@ -89,6 +89,12 @@ describe('should', () => {
     expect(
       transform('class="-translatex50%"'),
     ).toMatchInlineSnapshot('"class=\\"-translate-x-[50%]\\""')
+    expect(
+      transform('class="-tx50%"'),
+    ).toMatchInlineSnapshot('"class=\\"-translate-x-[50%]\\""')
+    expect(
+      transform('class="-ty50%!"'),
+    ).toMatchInlineSnapshot('"class=\\"!-translate-y-[50%]\\""')
   })
 
   it('text', () => {
