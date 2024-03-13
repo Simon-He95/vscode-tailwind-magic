@@ -103,6 +103,12 @@ describe('should', () => {
     ).toMatchInlineSnapshot('"class=\\"text-[18px]\\""')
   })
 
+  it('eclipse', () => {
+    expect(
+      transform('class="eclipse"'),
+    ).toMatchInlineSnapshot('"class=\\"truncate\\""')
+  })
+
   it('grid', () => {
     expect(
       transform('class="gridx4"'),
