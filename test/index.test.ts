@@ -419,8 +419,8 @@ describe('should', () => {
       transform('class="w10px >500px:w-10px w-20px"'),
     ).toMatchInlineSnapshot('"class=\\"w-[10px] max-[500px]:w-[10px] w-[20px]\\""')
     expect(
-      transform('class=" >500px:w-10px w-20px"'),
-    ).toMatchInlineSnapshot('"class=\\" max-[500px]:w-[10px] w-[20px]\\""')
+      transform('class="hover:-translate-x-[50%] hover:-translate-y-[50%] >500px:bg#eee"'),
+    ).toMatchInlineSnapshot('"class=\\"hover:-translate-x-[50%] hover:-translate-y-[50%] max-[500px]:bg-[#eee]\\""')
     expect(
       transform('class="w10px <500px:w10px w-20px"'),
     ).toMatchInlineSnapshot('"class=\\"w-[10px] min-[500px]:w-[10px] w-[20px]\\""')
