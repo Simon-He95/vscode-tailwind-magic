@@ -187,7 +187,7 @@ describe('should', () => {
   it('bb', () => {
     expect(
       transform('class="bb#fff"'),
-    ).toMatchInlineSnapshot('"class=\\"border-b-[#fff] border-transparent\\""')
+    ).toMatchInlineSnapshot('"class=\\"border-b-[#fff]\\""')
   })
   it('border-b', () => {
     expect(
@@ -589,6 +589,12 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="ts"'),
     ).toMatchInlineSnapshot('"class=\\"text-start\\""')
+    expect(
+      transform('class="bg-rgba(1 2 3 / 40%)"'),
+    ).toMatchInlineSnapshot('"class=\\"bg-[rgba(1,2,3,40%)]\\""')
+    expect(
+      transform('class="b#fff"'),
+    ).toMatchInlineSnapshot('"class=\\"border-[#fff] border border-solid\\""')
   })
   it('hover:', () => {   
     expect(transform('class="hover:(bgrgba(1,2,3,.1),box-border)"')).toMatchInlineSnapshot('"class=\\"hover:bg-[rgba(1,2,3,.1)] hover:box-border\\""')
