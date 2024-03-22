@@ -7,7 +7,6 @@ export default defineConfig({
   format: ['cjs'],
   shims: false,
   dts: false,
-  minify: true,
   external: [
     'vscode',
   ],

@@ -78,9 +78,9 @@
     ]
   },
   "scripts": {
-    "dev": "pnpm build --watch",
+    "dev": "tsup src/index.ts --external vscode",
     "test": "vitest",
-    "build": "tsup src/index.ts --external vscode",
+    "build": "tsup src/index.ts --external vscode --minify",
     "pack": "vsce package --no-dependencies",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

@@ -208,6 +208,9 @@ describe('should', () => {
     expect(
       transform('class="whfull!"'),
     ).toMatchInlineSnapshot('"class=\\"!w-full !h-full\\""')
+    expect(
+      transform('class="hover:whfull!"'),
+    ).toMatchInlineSnapshot('"class=\\"!hover:w-full hover:h-full\\""')
   })
   it('base', () => {
     expect(
@@ -367,7 +370,7 @@ describe('should', () => {
   it('hover', () => {
     expect(
       transform(':class="hover:(flex-center col) w10"'),
-    ).toMatchInlineSnapshot('":class=\\"hover:flex hover:justify-center hover:items-center hover:flex flex-col w-10\\""')
+    ).toMatchInlineSnapshot('":class=\\"hover:flex hover:justify-center hover:items-center hover:flex-col w-10\\""')
   })
   it('flex', () => {
     expect(
@@ -513,6 +516,7 @@ describe('transformClassAttr', () => {
             "line": 0,
           },
           "node": undefined,
+          "offset": 0,
           "raw": "hover:(text-red bg-blue)",
           "start": {
             "column": 0,
