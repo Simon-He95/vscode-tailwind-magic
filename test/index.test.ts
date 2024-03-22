@@ -590,4 +590,7 @@ describe('aggressiveMode', () => {
       transform('class="ts"'),
     ).toMatchInlineSnapshot('"class=\\"text-start\\""')
   })
+  it('hover:', () => {   
+    expect(transform('class="hover:(bgrgba(1,2,3,.1),box-border)"')).toMatchInlineSnapshot('"class=\\"hover:bg-[rgba(1,2,3,.1)] hover:box-border\\""')
+  })
 })
