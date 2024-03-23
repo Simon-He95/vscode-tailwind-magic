@@ -187,7 +187,7 @@ describe('should', () => {
   it('bb', () => {
     expect(
       transform('class="bb#fff"'),
-    ).toMatchInlineSnapshot('"class=\\"border-b-[#fff]\\""')
+    ).toMatchInlineSnapshot('"class=\\"border-b-[#fff] border border-solid\\""')
   })
   it('border-b', () => {
     expect(
