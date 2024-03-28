@@ -63,7 +63,7 @@ describe('should', () => {
     expect(transform('class="-ml10px! !w10"')).toMatchInlineSnapshot('"class=\\"!-ml-[10px] !w-10\\""')
   })
   it('position', () => {
-    expect(transform('class="position-center"')).toMatchInlineSnapshot('"class=\\"left-0 right-0 top-0 bottom-0\\""')
+    expect(transform('class="position-center"')).toMatchInlineSnapshot('"class=\\"absolute left-0 right-0 top-0 bottom-0\\""')
   })
   it('hidden', () => {
     expect(transform('class="hidden!"')).toMatchInlineSnapshot('"class=\\"!hidden\\""')
@@ -212,10 +212,14 @@ describe('should', () => {
       transform('class="hover:whfull!"'),
     ).toMatchInlineSnapshot('"class=\\"!hover:w-full hover:h-full\\""')
   })
-  it('base', () => {
+  it('flex-between', () => {
     expect(
       transform('class="flex-between"'),
-    ).toMatchInlineSnapshot('"class=\\"justify-between\\""')
+    ).toMatchInlineSnapshot('"class=\\"flex justify-between\\""')
+
+    expect(
+      transform('class="hover:flex-between"'),
+    ).toMatchInlineSnapshot('"class=\\"hover:flex hover:justify-between\\""')
   })
   it('base', () => {
     expect(
@@ -395,10 +399,10 @@ describe('should', () => {
   it('justify', () => {
     expect(
       transform(':class="justify-r"'),
-    ).toMatchInlineSnapshot('":class=\\"justify-end\\""')
+    ).toMatchInlineSnapshot('":class=\\"flex justify-end\\""')
     expect(
       transform(':class="justify-l"'),
-    ).toMatchInlineSnapshot('":class=\\"justify-start\\""')
+    ).toMatchInlineSnapshot('":class=\\"flex justify-start\\""')
   })
 
   it('from', () => {
