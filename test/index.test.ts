@@ -603,4 +603,7 @@ describe('aggressiveMode', () => {
   it('hover:', () => {   
     expect(transform('class="hover:(bgrgba(1,2,3,.1),box-border)"')).toMatchInlineSnapshot('"class=\\"hover:bg-[rgba(1,2,3,.1)] hover:box-border\\""')
   })
+  it('wrap:', () => {   
+    expect(transform('class="hover:(wrap)"')).toMatchInlineSnapshot('"class=\\"hover:flex hover:flex-wrap\\""')
+  })
 })
