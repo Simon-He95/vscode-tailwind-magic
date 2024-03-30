@@ -192,7 +192,7 @@ describe('should', () => {
   it('border-b', () => {
     expect(
       transform('class="border-b#eeee"'),
-    ).toMatchInlineSnapshot('"class=\\"border-b-[#eeee]\\""')
+    ).toMatchInlineSnapshot('"class=\\"border-b-[#eeee] border border-solid\\""')
   })
   it('bg', () => {
     expect(
@@ -608,5 +608,7 @@ describe('aggressiveMode', () => {
   })
   it('bb$color:', () => {   
     expect(transform('class="bb#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border border-solid\\""')
+    expect(transform('class="border-b#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border border-solid\\""')
+    expect(transform('class="border-b1"')).toMatchInlineSnapshot('"class=\\"border-b\\""')
   })
 })
