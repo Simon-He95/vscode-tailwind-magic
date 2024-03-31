@@ -144,12 +144,19 @@ describe('should', () => {
       transform('class="text-[rgba(1,1,1,1),hover:pink,2xl,lg:hover:3xl]"'),
     ).toMatchInlineSnapshot('"class=\\"text-[rgba(1,1,1,1)] hover:text-pink text-2xl lg:hover:text-3xl\\""')
   })
+
   it('bg', () => {
     expect(transform('class="bg-hsl(150 , 30% , 60% , 0.8)"')).toMatchInlineSnapshot('"class=\\"bg-[hsl(150,30%,60%,0.8)]\\""')
-  })
-  it('bg', () => {
     expect(transform('class="bg-rgba(150 30% 60% / 0.8)"')).toMatchInlineSnapshot('"class=\\"bg-[rgba(150,30%,60%,0.8)]\\""')
+    expect(
+      transform('class="bg-rgba(1 2 3 / 40%)"'),
+    ).toMatchInlineSnapshot('"class=\\"bg-[rgba(1,2,3,40%)]\\""')
+    expect(
+      transform('class="b#fff"'),
+    ).toMatchInlineSnapshot('"class=\\"border-[#fff] border border-solid\\""')
   })
+
+
 
   it('w', () => {
     expect(transform('class=" w-[calc(100%-20px)] "')).toMatchInlineSnapshot('"class=\\" w-[calc(100%-20px)] \\""')
@@ -574,7 +581,7 @@ describe('aggressiveMode', () => {
       transform('class="f200"'),
     ).toMatchInlineSnapshot('"class=\\"font-extralight\\""')
   })
-  it('tc | tl | tr | te | tj | ts', () => {
+  it('tc | tl | tr | te | tj | ts| tw', () => {
     expect(
       transform('class="tc"'),
     ).toMatchInlineSnapshot('"class=\\"text-center\\""')
@@ -594,19 +601,16 @@ describe('aggressiveMode', () => {
       transform('class="ts"'),
     ).toMatchInlineSnapshot('"class=\\"text-start\\""')
     expect(
-      transform('class="bg-rgba(1 2 3 / 40%)"'),
-    ).toMatchInlineSnapshot('"class=\\"bg-[rgba(1,2,3,40%)]\\""')
-    expect(
-      transform('class="b#fff"'),
-    ).toMatchInlineSnapshot('"class=\\"border-[#fff] border border-solid\\""')
+      transform('class="tw"'),
+    ).toMatchInlineSnapshot('"class=\\"text-wrap\\""')
   })
-  it('hover:', () => {   
+  it('hover:', () => {
     expect(transform('class="hover:(bgrgba(1,2,3,.1),box-border)"')).toMatchInlineSnapshot('"class=\\"hover:bg-[rgba(1,2,3,.1)] hover:box-border\\""')
   })
-  it('wrap:', () => {   
+  it('wrap:', () => {
     expect(transform('class="hover:(wrap)"')).toMatchInlineSnapshot('"class=\\"hover:flex hover:flex-wrap\\""')
   })
-  it('bb$color:', () => {   
+  it('bb$color:', () => {
     expect(transform('class="bb#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border border-solid\\""')
     expect(transform('class="border-b#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border border-solid\\""')
     expect(transform('class="border-b1"')).toMatchInlineSnapshot('"class=\\"border-b\\""')
