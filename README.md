@@ -19,7 +19,11 @@
 
 ![demo](assets/demo.gif)
 
-## 💰 Charge plan
+## ✨ Temporarily free
+
+- Since the previous service was hung on AirCode, AirCode is no available now. It is planned to be used for free before December 31, 2024.
+
+## ~~💰 Charge plan~~
 - At present, the plug-in requires an activation code to run normally.
 
 - For users who haven't experienced it yet, you can find me on [discord](https://discord.com/invite/ZnjxzMKWNW) to get a one-month free experience qualification.
