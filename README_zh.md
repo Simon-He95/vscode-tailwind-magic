@@ -49,6 +49,17 @@
 - <500px:w10px -> min-[500px]:w-[10px]
 - whfull -> w-full h-full
 
+## 自定义注入规则
+
+`tailwindMagic.presets` 支持自定义注入规则，你可以像下面这样设置自己希望的转换规则
+```
+
+[
+  ["tnw", "text-no-wrap"]
+]
+
+```
+
 ## 参数配置
 - 您可以使用配置来控制一些匹配规则，例如严格拆分，或者生成的计算结果是`-[10px]`或`-10px`
 - attributifyMode 默认 true，开启tailwind 属性自动转换成class的能力，就像unocss的attributify的写法，保存后自动转换
