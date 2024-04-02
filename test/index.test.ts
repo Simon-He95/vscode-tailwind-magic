@@ -586,6 +586,9 @@ describe('aggressiveMode', () => {
   })
   it('tc | tl | tr | te | tj | ts| tw', () => {
     expect(
+      transform('className={`w-full py-2 shrink-0 whitespace-nowrap text-ellipsis text-center ${tab === i ? \'bg-primary text-white\' : \'\'}`}'),
+    ).toMatchInlineSnapshot('"className={`w-full py-2 shrink-0 whitespace-nowrap text-ellipsis text-center ${tab === i ? \'bg-primary text-white\' : \'\'}`}"')
+    expect(
       transform('class="tc"'),
     ).toMatchInlineSnapshot('"class=\\"text-center\\""')
     expect(
