@@ -68,10 +68,6 @@ describe('should', () => {
   it('hidden', () => {
     expect(transform('class="hidden!"')).toMatchInlineSnapshot('"class=\\"!hidden\\""')
   })
-  it('text', () => {
-    expect(transform('class="text-18px text-1rem"')).toMatchInlineSnapshot('"class=\\"text-[18px] text-[1rem]\\""')
-    expect(transform('class="t#fff"')).toMatchInlineSnapshot('"class=\\"text-[#fff]\\""')
-  })
   it('base', () => {
     expect(transform('class="bg#fff maxh10px minw10px"')).toMatchInlineSnapshot('"class=\\"bg-[#fff] max-h-[10px] min-w-[10px]\\""')
   })
@@ -99,12 +95,6 @@ describe('should', () => {
     expect(
       transform('class="-ty50%!"'),
     ).toMatchInlineSnapshot('"class=\\"!-translate-y-[50%]\\""')
-  })
-
-  it('text', () => {
-    expect(
-      transform('class="text-18px"'),
-    ).toMatchInlineSnapshot('"class=\\"text-[18px]\\""')
   })
 
   it('eclipse', () => {
@@ -141,12 +131,18 @@ describe('should', () => {
     expect(
       transform('class="text-[red,hover:pink,2xl,lg:hover:3xl]"'),
     ).toMatchInlineSnapshot('"class=\\"text-red hover:text-pink text-2xl lg:hover:text-3xl\\""')
-  })
-
-  it('text', () => {
     expect(
       transform('class="text-[rgba(1,1,1,1),hover:pink,2xl,lg:hover:3xl]"'),
     ).toMatchInlineSnapshot('"class=\\"text-[rgba(1,1,1,1)] hover:text-pink text-2xl lg:hover:text-3xl\\""')
+    expect(
+      transform('class="text-18px"'),
+    ).toMatchInlineSnapshot('"class=\\"text-[18px]\\""')
+    expect(
+      transform('class="text16rpx w16rpx"'),
+    ).toMatchInlineSnapshot('"class=\\"text-[length:16rpx] w-[16rpx]\\""')
+    expect(transform('class="text-18px text-1rem"')).toMatchInlineSnapshot('"class=\\"text-[18px] text-[1rem]\\""')
+    expect(transform('class="t#fff"')).toMatchInlineSnapshot('"class=\\"text-[#fff]\\""')
+    expect(transform('class="t#333"')).toMatchInlineSnapshot('"class=\\"text-[#333]\\""')
   })
 
   it('bg', () => {
@@ -179,11 +175,6 @@ describe('should', () => {
     expect(
       transform('class="w-[full,lg:50%,calc(10vw - 20px * 2px)]"'),
     ).toMatchInlineSnapshot('"class=\\"w-full lg:w-[50%] w-[calc(10vw-20px*2px)]\\""')
-  })
-  it('text', () => {
-    expect(
-      transform('class="text16rpx w16rpx"'),
-    ).toMatchInlineSnapshot('"class=\\"text-[length:16rpx] w-[16rpx]\\""')
   })
   it('brd', () => {
     expect(
