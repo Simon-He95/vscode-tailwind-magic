@@ -223,19 +223,40 @@ describe('should', () => {
       transform('class="hover:flex-between"'),
     ).toMatchInlineSnapshot('"class=\\"hover:flex hover:justify-between\\""')
   })
-  it('base', () => {
+  it('flex', () => {
     expect(
       transform('class="x-center"'),
-    ).toMatchInlineSnapshot('"class=\\"justify-center\\""')
+    ).toMatchInlineSnapshot('"class=\\"flex justify-center\\""')
     expect(
       transform('class="y-center"'),
-    ).toMatchInlineSnapshot('"class=\\"items-center\\""')
+    ).toMatchInlineSnapshot('"class=\\"flex items-center\\""')
     expect(
       transform('class="flex-col x-center"'),
     ).toMatchInlineSnapshot('"class=\\"flex flex-col items-center\\""')
     expect(
       transform('class="flex-col y-center"'),
     ).toMatchInlineSnapshot('"class=\\"flex flex-col justify-center\\""')
+    expect(
+      transform('class="x-start"'),
+    ).toMatchInlineSnapshot('"class=\\"flex justify-start\\""')
+    expect(
+      transform('class="y-start"'),
+    ).toMatchInlineSnapshot('"class=\\"flex items-start\\""')
+    expect(
+      transform('class="flex-col x-start"'),
+    ).toMatchInlineSnapshot('"class=\\"flex flex-col items-start\\""')
+    expect(
+      transform('class="flex-col y-start"'),
+    ).toMatchInlineSnapshot('"class=\\"flex flex-col justify-start\\""')
+    expect(
+      transform('class="flex-col xs"'),
+    ).toMatchInlineSnapshot('"class=\\"flex flex-col items-start\\""')
+    expect(
+      transform('class="flex-col ys"'),
+    ).toMatchInlineSnapshot('"class=\\"flex flex-col justify-start\\""')
+    expect(
+      transform('class="xc"'),
+    ).toMatchInlineSnapshot('"class=\\"flex justify-center\\""')
   })
   it('base', () => {
     expect(
@@ -576,7 +597,7 @@ describe('aggressiveMode', () => {
       transform('class="f200"'),
     ).toMatchInlineSnapshot('"class=\\"font-extralight\\""')
   })
-  it('tc | tl | tr | te | tj | ts| tw', () => {
+  it('tc | tl | tr | te | tj | ts | tw | fs | fe', () => {
     expect(
       transform('className={`w-full py-2 shrink-0 whitespace-nowrap text-ellipsis text-center ${tab === i ? \'bg-primary text-white\' : \'\'}`}'),
     ).toMatchInlineSnapshot('"className={`w-full py-2 shrink-0 whitespace-nowrap text-ellipsis text-center ${tab === i ? \'bg-primary text-white\' : \'\'}`}"')
@@ -601,6 +622,18 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="tw"'),
     ).toMatchInlineSnapshot('"class=\\"text-wrap\\""')
+    expect(
+      transform('class="fs"'),
+    ).toMatchInlineSnapshot('"class=\\"flex justify-start\\""')
+    expect(
+      transform('class="fe"'),
+    ).toMatchInlineSnapshot('"class=\\"flex justify-end\\""')
+    expect(
+      transform('class="fs col"'),
+    ).toMatchInlineSnapshot('"class=\\"flex items-start flex-col\\""')
+    expect(
+      transform('class="fe flex-col"'),
+    ).toMatchInlineSnapshot('"class=\\"items-end flex flex-col\\""')
   })
   it('hover:', () => {
     expect(transform('class="hover:(bgrgba(1,2,3,.1),box-border)"')).toMatchInlineSnapshot('"class=\\"hover:bg-[rgba(1,2,3,.1)] hover:box-border\\""')
