@@ -646,4 +646,7 @@ describe('aggressiveMode', () => {
     expect(transform('class="border-b#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border border-solid\\""')
     expect(transform('class="border-b1"')).toMatchInlineSnapshot('"class=\\"border-b\\""')
   })
+  it('should not work',()=>{
+    expect(transform('class="text-[1px_2px_1px_rgba(255,255,255,0.647058823529412)]"')).toMatchInlineSnapshot('"class=\\"text-[1px_2px_1px_rgba(255,255,255,0.647058823529412)]\\""')
+  })
 })
