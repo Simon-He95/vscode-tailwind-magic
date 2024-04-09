@@ -3,7 +3,7 @@
 </p>
 <p align="center"> <a href="./README.md">English</a> | 简体中文</p>
 
-🌈 这个vscode插件是为了解决tailwindcss的语法使用的不便，他能给你带来极致的开发体验和开发效率。
+🌈 这个 vscode 插件是为了解决 tailwindcss 的语法使用的不便，他能给你带来极致的开发体验和开发效率。如果你使用 UnoCss 可以选择 [Unot](https://github.com/Simon-He95/unot).
 
 ## ❓ 为什么要用Tailwind Magic
 - 因为在使用tailwind css时候会大量使用到 一些自定义的颜色比如`rgb`或者`#fff`或者`calc`等等，这些需要写成`bg-[#fff]`、`w-[calc(100%-20px)]`，我觉得会频繁使用到`-、[、]`，这三个案件时很影响效率的，所以我写了这个插件，他能帮你自动转换成`bg#fff`、`wcalc(100%-20px)`，这样你就可以专注于你的业务代码了，不用再去关注这些细节了。
