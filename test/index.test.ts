@@ -189,12 +189,12 @@ describe('should', () => {
   it('bb', () => {
     expect(
       transform('class="bb#fff"'),
-    ).toMatchInlineSnapshot('"class=\\"border-b-[#fff] border border-solid\\""')
+    ).toMatchInlineSnapshot('"class=\\"border-b-[#fff] border-b border-solid\\""')
   })
   it('border-b', () => {
     expect(
       transform('class="border-b#eeee"'),
-    ).toMatchInlineSnapshot('"class=\\"border-b-[#eeee] border border-solid\\""')
+    ).toMatchInlineSnapshot('"class=\\"border-b-[#eeee] border-b border-solid\\""')
   })
   it('bg', () => {
     expect(
@@ -642,9 +642,10 @@ describe('aggressiveMode', () => {
     expect(transform('class="hover:(wrap)"')).toMatchInlineSnapshot('"class=\\"hover:flex hover:flex-wrap\\""')
   })
   it('bb$color:', () => {
-    expect(transform('class="bb#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border border-solid\\""')
-    expect(transform('class="border-b#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border border-solid\\""')
+    expect(transform('class="bb#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border-b border-solid\\""')
+    expect(transform('class="border-b#eee"')).toMatchInlineSnapshot('"class=\\"border-b-[#eee] border-b border-solid\\""')
     expect(transform('class="border-b1"')).toMatchInlineSnapshot('"class=\\"border-b\\""')
+    expect(transform('class="br#eee"')).toMatchInlineSnapshot('"class=\\"border-r-[#eee] border-r border-solid\\""')
   })
   it('should not work',()=>{
     expect(transform('class="text-[1px_2px_1px_rgba(255,255,255,0.647058823529412)]"')).toMatchInlineSnapshot('"class=\\"text-[1px_2px_1px_rgba(255,255,255,0.647058823529412)]\\""')
