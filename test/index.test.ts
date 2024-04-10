@@ -12,8 +12,9 @@ describe('should', () => {
     expect(transform('class="h-10 w-calc(100%-10px) max-w-1"')).toMatchInlineSnapshot('"class=\\"h-10 w-[calc(100%-10px)] max-w-1\\""')
     expect(transform('class="wh10px!"')).toMatchInlineSnapshot('"class=\\"!w-[10px] !h-[10px]\\""')
     expect(transform('class="wh10!"')).toMatchInlineSnapshot('"class=\\"!w-10 !h-10\\""')
-    expect(transform('class="h-var(--max-height,480px)""')).toMatchInlineSnapshot('"class=\\"h-[var(--max-height,480px)]\\"\\""')
-    expect(transform('class="h-max(--max-height,480px)""')).toMatchInlineSnapshot('"class=\\"h-[max(--max-height,480px)]\\"\\""')
+    expect(transform('class="h-var(--max-height,480px)"')).toMatchInlineSnapshot('"class=\\"h-[var(--max-height,480px)]\\""')
+    expect(transform('class="h-max(--max-height,480px)"')).toMatchInlineSnapshot('"class=\\"h-[max(--max-height,480px)]\\""')
+    expect(transform('class="h-[var(--max-heighth,480px)]"')).toMatchInlineSnapshot('"class=\\"h-[var(--max-heighth,480px)]\\""')
     
   })
   it('pointer', () => {
