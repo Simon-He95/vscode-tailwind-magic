@@ -15,6 +15,7 @@ describe('should', () => {
     expect(transform('class="h-var(--max-height,480px)"')).toMatchInlineSnapshot('"class=\\"h-[var(--max-height,480px)]\\""')
     expect(transform('class="h-max(--max-height,480px)"')).toMatchInlineSnapshot('"class=\\"h-[max(--max-height,480px)]\\""')
     expect(transform('class="h-[var(--max-heighth,480px)]"')).toMatchInlineSnapshot('"class=\\"h-[var(--max-heighth,480px)]\\""')
+    expect(transformClass('w-full h-[var(--max-heighth,480px)]')).toMatchInlineSnapshot('"w-full h-[var(--max-heighth,480px)]"')
     
   })
   it('pointer', () => {
