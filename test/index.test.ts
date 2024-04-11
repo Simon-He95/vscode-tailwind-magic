@@ -16,7 +16,6 @@ describe('should', () => {
     expect(transform('class="h-max(--max-height,480px)"')).toMatchInlineSnapshot('"class=\\"h-[max(--max-height,480px)]\\""')
     expect(transform('class="h-[var(--max-heighth,480px)]"')).toMatchInlineSnapshot('"class=\\"h-[var(--max-heighth,480px)]\\""')
     expect(transformClass('w-full h-[var(--max-heighth,480px)]')).toMatchInlineSnapshot('"w-full h-[var(--max-heighth,480px)]"')
-    
   })
   it('pointer', () => {
     expect(transform('class="pointer pointer-none"')).toMatchInlineSnapshot('"class=\\"cursor-pointer pointer-events-none\\""')
@@ -72,6 +71,7 @@ describe('should', () => {
   })
   it('hidden', () => {
     expect(transform('class="hidden!"')).toMatchInlineSnapshot('"class=\\"!hidden\\""')
+    expect(transform('class="x-hidden! y-hidden"')).toMatchInlineSnapshot('"class=\\"!overflow-x-hidden overflow-y-hidden\\""')
   })
   it('base', () => {
     expect(transform('class="bg#fff maxh10px minw10px"')).toMatchInlineSnapshot('"class=\\"bg-[#fff] max-h-[10px] min-w-[10px]\\""')
@@ -290,27 +290,30 @@ describe('should', () => {
   })
   it('border', () => {
     expect(
-      transform('class="border-solid"'),
-    ).toMatchInlineSnapshot('"class=\\"border-solid\\""')
-  })
-  it('border', () => {
-    expect(
       transform('class="border#333"'),
     ).toMatchInlineSnapshot('"class=\\"border-[#333] border border-solid\\""')
+    expect(
+      transform('class="border-solid"'),
+    ).toMatchInlineSnapshot('"class=\\"border-solid\\""')
   })
   it('text + calc', () => {
     expect(
       transform('class="textcalc(100px - 20px)"'),
     ).toMatchInlineSnapshot('"class=\\"text-[calc(100px-20px)]\\""')
   })
-  it('space', () => {
-    expect(
-      transform('class="spacex10px"'),
-    ).toMatchInlineSnapshot('"class=\\"space-x-[10px]\\""')
-  })
+
   it('space', () => {
     expect(
       transform('class="space-y-10px"'),
+    ).toMatchInlineSnapshot('"class=\\"space-y-[10px]\\""')
+    expect(
+      transform('class="spacex10px"'),
+    ).toMatchInlineSnapshot('"class=\\"space-x-[10px]\\""')
+    expect(
+      transform('class="sx10px"'),
+    ).toMatchInlineSnapshot('"class=\\"space-x-[10px]\\""')
+    expect(
+      transform('class="sy10px"'),
     ).toMatchInlineSnapshot('"class=\\"space-y-[10px]\\""')
   })
   it('fill', () => {
@@ -602,7 +605,7 @@ describe('aggressiveMode', () => {
       transform('class="f200"'),
     ).toMatchInlineSnapshot('"class=\\"font-extralight\\""')
   })
-  it('tc | tl | tr | te | tj | ts | tw | fs | fe', () => {
+  it('tc | tl | tr | te | tj | ts | tw | fs | fe | fb | fa | fev', () => {
     expect(
       transform('className={`w-full py-2 shrink-0 whitespace-nowrap text-ellipsis text-center ${tab === i ? \'bg-primary text-white\' : \'\'}`}'),
     ).toMatchInlineSnapshot('"className={`w-full py-2 shrink-0 whitespace-nowrap text-ellipsis text-center ${tab === i ? \'bg-primary text-white\' : \'\'}`}"')
@@ -639,6 +642,15 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="fe flex-col"'),
     ).toMatchInlineSnapshot('"class=\\"items-end flex flex-col\\""')
+    expect(
+      transform('class="fb"'),
+    ).toMatchInlineSnapshot('"class=\\"flex justify-between\\""')
+    expect(
+      transform('class="fa"'),
+    ).toMatchInlineSnapshot('"class=\\"flex justify-around\\""')
+    expect(
+      transform('class="fev"'),
+    ).toMatchInlineSnapshot('"class=\\"flex justify-evenly\\""')
   })
   it('hover:', () => {
     expect(transform('class="hover:(bgrgba(1,2,3,.1),box-border)"')).toMatchInlineSnapshot('"class=\\"hover:bg-[rgba(1,2,3,.1)] hover:box-border\\""')
@@ -652,7 +664,7 @@ describe('aggressiveMode', () => {
     expect(transform('class="border-b1"')).toMatchInlineSnapshot('"class=\\"border-b\\""')
     expect(transform('class="br#eee"')).toMatchInlineSnapshot('"class=\\"border-r-[#eee] border-r border-solid\\""')
   })
-  it('should not work',()=>{
+  it('should not work', () => {
     expect(transform('class="text-[1px_2px_1px_rgba(255,255,255,0.647058823529412)]"')).toMatchInlineSnapshot('"class=\\"text-[1px_2px_1px_rgba(255,255,255,0.647058823529412)]\\""')
   })
 })
