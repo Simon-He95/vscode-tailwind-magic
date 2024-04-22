@@ -667,4 +667,7 @@ describe('aggressiveMode', () => {
   it('should not work', () => {
     expect(transform('class="text-[1px_2px_1px_rgba(255,255,255,0.647058823529412)]"')).toMatchInlineSnapshot('"class=\\"text-[1px_2px_1px_rgba(255,255,255,0.647058823529412)]\\""')
   })
+  it('shadow', () => {
+    expect(transform('class=" shadow-[0px_5px_10px_1px_rgba(1,1,1,1)]"')).toMatchInlineSnapshot('"class=\\" shadow-[0px_5px_10px_1px_rgba(1,1,1,1)]\\""')
+  })
 })
