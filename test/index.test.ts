@@ -604,6 +604,12 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="f200"'),
     ).toMatchInlineSnapshot('"class=\\"font-extralight\\""')
+    expect(
+      transform('class="f16"'),
+    ).toMatchInlineSnapshot('"class=\\"text-base\\""')
+    expect(
+      transform('class="f15px"'),
+    ).toMatchInlineSnapshot('"class=\\"text-[15px]\\""')
   })
   it('tc | tl | tr | te | tj | ts | tw | fs | fe | fb | fa | fev', () => {
     expect(

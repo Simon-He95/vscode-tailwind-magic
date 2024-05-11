@@ -95,7 +95,7 @@
     "@unocss/core": "^0.56.5",
     "@unocss/preset-attributify": "^0.56.5",
     "@unocss/preset-uno": "^0.56.5",
-    "@vscode-use/utils": "^0.0.89",
+    "@vscode-use/utils": "^0.0.93",
     "@vue/compiler-sfc": "^3.3.4",
     "axios": "^1.6.3",
     "bumpp": "^9.1.0",
