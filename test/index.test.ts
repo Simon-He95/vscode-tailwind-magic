@@ -585,7 +585,7 @@ describe('transformClass', () => {
 })
 
 describe('aggressiveMode', () => {
-  it('trlbf', () => {
+  it('trlbfg', () => {
     expect(
       transform('class="t1"'),
     ).toMatchInlineSnapshot('"class=\\"top-1\\""')
@@ -610,6 +610,15 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="f15px"'),
     ).toMatchInlineSnapshot('"class=\\"text-[15px]\\""')
+    expect(
+      transform('class="g1"'),
+    ).toMatchInlineSnapshot('"class=\\"gap-1\\""')
+    expect(
+      transform('class="gx1px"'),
+    ).toMatchInlineSnapshot('"class=\\"gx-[1px]\\""')
+    expect(
+      transform('class="gy1"'),
+    ).toMatchInlineSnapshot('"class=\\"gy-1\\""')
   })
   it('tc | tl | tr | te | tj | ts | tw | fs | fe | fb | fa | fev', () => {
     expect(
@@ -675,5 +684,22 @@ describe('aggressiveMode', () => {
   })
   it('shadow', () => {
     expect(transform('class=" shadow-[0px_5px_10px_1px_rgba(1,1,1,1)]"')).toMatchInlineSnapshot('"class=\\" shadow-[0px_5px_10px_1px_rgba(1,1,1,1)]\\""')
+  })
+  it('object', () => {
+    expect(
+      transform('class="object50%20%"'),
+    ).toMatchInlineSnapshot('"class=\\"object-[50%_20%]\\""')
+    expect(
+      transform('class="object50%"'),
+    ).toMatchInlineSnapshot('"class=\\"object-[50%]\\""')
+    expect(
+      transform('class="object--50%"'),
+    ).toMatchInlineSnapshot('"class=\\"object-[-50%]\\""')
+    expect(
+      transform('class="object--50%-20%"'),
+    ).toMatchInlineSnapshot('"class=\\"object-[-50%_-20%]\\""')
+    expect(
+      transform('class="object--50%--20%"'),
+    ).toMatchInlineSnapshot('"class=\\"object-[-50%_-20%]\\""')
   })
 })
