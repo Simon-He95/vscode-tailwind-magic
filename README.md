@@ -54,7 +54,52 @@
 - <500px:(w10px h20px) -> min-[500px]:w-[10px] min-[500px]:h-[20px]
 - whfull -> w-full h-full
 
-## Custom injection rules
+## When you enable `aggressiveMode`, you can get the following conversion
+```json
+{
+  "tc": "text-center",
+  "ts": "text-start",
+  "te": "text-end",
+  "tr": "text-right",
+  "tl": "text-left",
+  "tj": "text-justify",
+  "tw": "text-wrap",
+  "fs": "flex-start",
+  "fe": "flex-end",
+  "fb": "flex-between",
+  "fev": "flex-evenly",
+  "fa": "flex-around",
+  "xs": "x-start",
+  "xe": "x-end",
+  "ys": "y-start",
+  "ye": "y-end",
+  "xc": "x-center",
+  "yc": "y-center"
+}
+```
+
+## When you enable `attributifyMode`
+- You no longer need to use `-` to splice, you can write `bg#fff` directly on the attribute, and it will be automatically converted to `bg-[#fff]` after saving - You no longer need to use `-` to splice, you You can write `bg#fff` directly on the attribute, and it will be automatically converted to `bg-[#fff]` after saving.
+
+## When you enable `strictMode`
+- You must use `-` to splice
+
+## When you enable `variantGroup`
+- You can convert `hover:(text-red bg-blue)` to `hover:text-red hover:bg-blue`
+
+## nitty gritty
+- flex-center -> flex justify-center items-center
+- col -> flex flex-col
+- pointer -> cursor-pointer
+- pointer-none -> cursor-none
+- `>500px` -> `max-[500px]`
+- `<500px` -> `min-[500px]`
+- Use x-center or y-center based on row or col
+- gridx4y4 -> grid-cols-4 grid-rows-4
+- bb#eee -> border-b-[#eee] border-b border
+- f400 -> font-400, f10px -> text-[10px]
+
+## Custom injection rules `presets`
 
 `tailwindMagic.presets` supports custom injection rules. You can set the conversion rules you want as follows.
 

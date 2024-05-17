@@ -53,7 +53,52 @@
 - <500px:w10px -> min-[500px]:w-[10px]
 - whfull -> w-full h-full
 
-## 自定义注入规则
+## 当你开启 `aggressiveMode` 时, 你可以得到下面的转换
+```json
+{
+  "tc": "text-center",
+  "ts": "text-start",
+  "te": "text-end",
+  "tr": "text-right",
+  "tl": "text-left",
+  "tj": "text-justify",
+  "tw": "text-wrap",
+  "fs": "flex-start",
+  "fe": "flex-end",
+  "fb": "flex-between",
+  "fev": "flex-evenly",
+  "fa": "flex-around",
+  "xs": "x-start",
+  "xe": "x-end",
+  "ys": "y-start",
+  "ye": "y-end",
+  "xc": "x-center",
+  "yc": "y-center"
+}
+```
+
+## 当你开启 `attributifyMode`
+- 你不在需要去用`-`拼接, 你可以直接在属性上写`bg#fff`,保存后会自动转换成`bg-[#fff]`- 你不在需要去用`-`拼接, 你可以直接在属性上写`bg#fff`,保存后会自动转换成`bg-[#fff]`
+
+## 当你开启 `strictMode`
+- 你必须要使用`-`去拼接
+
+## 当你开启 `variantGroup`
+- 你可以将`hover:(text-red bg-blue)`转换成`hover:text-red hover:bg-blue`
+
+## 小细节
+- flex-center -> flex justify-center items-center
+- col -> flex flex-col
+- pointer -> cursor-pointer
+- pointer-none -> cursor-none
+- `>500px` -> `max-[500px]`
+- `<500px` -> `min-[500px]`
+- 根据 row 或 col 使用 x-center 或 y-center
+-  gridx4y4 -> grid-cols-4 grid-rows-4
+-  bb#eee -> border-b-[#eee] border-b border
+-  f400 -> font-400, f10px -> text-[10px]
+
+## 自定义注入规则 `presets`
 
 `tailwindMagic.presets` 支持自定义注入规则，你可以像下面这样设置自己希望的转换规则
 ```
