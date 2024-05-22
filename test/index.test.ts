@@ -545,6 +545,8 @@ describe('transformClassAttr', () => {
     }])).toMatchInlineSnapshot(`
       [
         {
+          "attrEnd": undefined,
+          "attrStart": undefined,
           "content": "hover:text-red hover:bg-blue",
           "end": {
             "column": 0,
