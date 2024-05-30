@@ -532,6 +532,7 @@ describe('transformClassAttr', () => {
   it('transformClassAttr', async () => {
     expect(await transformClassAttr([{
       content: 'hover:(text-red bg-blue)',
+      raw: 'hover:(text-red bg-blue)',
       line: 0,
       charater: 0,
       end: {
@@ -703,5 +704,10 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="object--50%--20%"'),
     ).toMatchInlineSnapshot('"class=\\"object-[-50%_-20%]\\""')
+  })
+  it('pseudoPrefix', () => {
+    expect(
+      transform('class="portrait:(tc w20px)"'),
+    ).toMatchInlineSnapshot('"class=\\"portrait:text-center portrait:w-[20px]\\""')
   })
 })
