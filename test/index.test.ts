@@ -710,4 +710,18 @@ describe('aggressiveMode', () => {
       transform('class="portrait:(tc w20px)"'),
     ).toMatchInlineSnapshot('"class=\\"portrait:text-center portrait:w-[20px]\\""')
   })
+  it.only('nth', () => {
+    expect(
+      transform('class="children:hover:(w20px bg-red-100)"'),
+    ).toMatchInlineSnapshot('"class=\\"className=\\"children:hover:w20px children:hover:bg-red-100\\"\\""')
+    expect(
+      transform('class="first-child:w20px"'),
+    ).toMatchInlineSnapshot('"class=\\"first:[&>*]:w20px\\""')
+    expect(
+      transform('class="last-child:w20px"'),
+    ).toMatchInlineSnapshot('"class=\\"last:[&>*]:w20px\\""')
+    expect(
+      transform('class="child-(3n+1):w20px"'),
+    ).toMatchInlineSnapshot('"class=\\"[&>*:nth-of-type(3n+1)]:w20px\\""')
+  })
 })
