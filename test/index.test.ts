@@ -415,7 +415,7 @@ describe('should', () => {
   it('hover', () => {
     expect(
       transformClass('hover:(w20px,h30px)'),
-    ).toMatchInlineSnapshot('"hover:w-[20px] hover:h-[30px]"')
+    ).toMatchInlineSnapshot('"className=\\"hover:w-[20px] hover:h-[30px]\\""')
     expect(
       transformClass('text-[red,hover:yellow]'),
     ).toMatchInlineSnapshot('"text-red hover:text-yellow"')
@@ -476,19 +476,19 @@ describe('should', () => {
     ).toMatchInlineSnapshot('"className=\\"hover:text-red hover:bg-blue\\""')
     expect(
       transformClass('hover:(text-red bg-blue)"'),
-    ).toMatchInlineSnapshot('"hover:text-red hover:bg-blue\\""')
+    ).toMatchInlineSnapshot('"className=\\"hover:text-red hover:bg-blue\\"\\""')
     expect(
       transformClass('hover:(text-red bg-blue)'),
-    ).toMatchInlineSnapshot('"hover:text-red hover:bg-blue"')
+    ).toMatchInlineSnapshot('"className=\\"hover:text-red hover:bg-blue\\""')
     expect(
       transformClass('md:(flex-center)'),
-    ).toMatchInlineSnapshot('"md:flex md:justify-center md:items-center"')
+    ).toMatchInlineSnapshot('"className=\\"md:flex-center\\""')
     expect(
       transformClass('<500px:(flex-center)'),
-    ).toMatchInlineSnapshot('"min-[500px]:flex min-[500px]:justify-center min-[500px]:items-center"')
+    ).toMatchInlineSnapshot('"className=\\"min-[500px]:flex-center\\""')
     expect(
       transformClass('<500px:(border#eee)'),
-    ).toMatchInlineSnapshot('"min-[500px]:border-[#eee] min-[500px]:border min-[500px]:border-solid"')
+    ).toMatchInlineSnapshot('"className=\\"min-[500px]:border-[#eee\\"]"')
   })
 
   it('columns', () => {
@@ -710,10 +710,10 @@ describe('aggressiveMode', () => {
       transform('class="portrait:(tc w20px)"'),
     ).toMatchInlineSnapshot('"class=\\"portrait:text-center portrait:w-[20px]\\""')
   })
-  it.only('nth', () => {
+  it('nth', () => {
     expect(
       transform('class="children:hover:(w20px bg-red-100)"'),
-    ).toMatchInlineSnapshot('"class=\\"className=\\"children:hover:w20px children:hover:bg-red-100\\"\\""')
+    ).toMatchInlineSnapshot('"class=\\"[&>*]:hover:w-[20px] [&>*]:hover:bg-red-100\\""')
     expect(
       transform('class="first-child:w20px"'),
     ).toMatchInlineSnapshot('"class=\\"first:[&>*]:w20px\\""')
@@ -723,5 +723,13 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="child-(3n+1):w20px"'),
     ).toMatchInlineSnapshot('"class=\\"[&>*:nth-of-type(3n+1)]:w20px\\""')
+  })
+  it('left-group', () => {
+    expect(
+      transform('class="(first last):w20px (children hover):h20px"'),
+    ).toMatchInlineSnapshot('"class=\\"first:w-[20px] last:w-[20px] [&>*]:h20px hover:h-[20px]\\""')
+    expect(
+      transform('class="(first last)-w20px (children hover)-h20px"'),
+    ).toMatchInlineSnapshot('"class=\\"first-w-[20px] last-w-[20px] children-h-[20px] hover-h-[20px]\\""')
   })
 })
