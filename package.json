@@ -19,6 +19,14 @@
   "sponsor": {
     "url": "https://github.com/Simon-He95/sponsor"
   },
+  "keywords": [
+    "tailwind",
+    "tailwindcss",
+    "css",
+    "intellisense",
+    "autocomplete",
+    "vscode"
+  ],
   "categories": [
     "Other"
   ],
