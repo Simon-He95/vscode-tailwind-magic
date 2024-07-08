@@ -5,11 +5,7 @@
 
 🌈 This vscode plug-in is to solve the inconvenience of the syntax of tailwindcss. It can bring you the ultimate development experience and development efficiency. If you use UnoCss, you can choose [Unot] (https://github.com/Simon-He95/unot).
 
-## ❓ Why use Tailwind Magic?
-
-- Because when using tailwind css, you will use a lot of custom colors such as `rgb` or `#fff` or `calc`, which need to be written as `bg-[#fff]`, `w-[calc(100%-20px)] I think I will use `-, [,]` frequently. These three cases affect the efficiency, so I wrote this plug-in, which can help you automatically convert to `bg#fff`, `wcalc(100%-20px)`, so that you can focus on your business code. You don't have to go any more. Pay attention to these details.
-- When we copy some styles from the browser's design draft, it has a space. You can't paste it directly into bg-[rgba(10, 20, 30)]. He can't be recognized by tailwind, so you need to manually remove the space. This plug-in can also Help you automatically remove the space, you just need to copy and paste it.
-- The syntax of tailwind needs to be defined in class, but sometimes, I hope to write directly on attributes like UnoCss. This plug-in can support you to write on attributes. When you save it, it will be automatically converted to class, so that you can write more. It's convenient.
+[❓ Why is Tailwind Magic recommended](https://simonhe.me/posts/vscode-tailwind-magic)
 
 ## 〽️ Suggestions
 
