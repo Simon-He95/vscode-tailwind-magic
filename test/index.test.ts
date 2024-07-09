@@ -26,6 +26,7 @@ describe('should', () => {
     expect(transform('class="bl1"')).toMatchInlineSnapshot('"class=\\"border-l\\""')
     expect(transform('class="bt1"')).toMatchInlineSnapshot('"class=\\"border-t\\""')
     expect(transform('class="bb1"')).toMatchInlineSnapshot('"class=\\"border-b\\""')
+    expect(transform('class="bbred"')).toMatchInlineSnapshot('"class=\\"border-b-red border-b border-solid\\""')
   })
   it('left', () => {
     expect(transform('class="-left-50%"')).toMatchInlineSnapshot('"class=\\"-left-[50%]\\""')
@@ -731,5 +732,18 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="(first last)-w20px (children hover)-h20px"'),
     ).toMatchInlineSnapshot('"class=\\"first-w-[20px] last-w-[20px] children-h-[20px] hover-h-[20px]\\""')
+  })
+  it('clamp', () => {
+    expect(
+      transform('class="line3"'),
+    ).toMatchInlineSnapshot('"class=\\"line-clamp-3 break-words\\""')
+  })
+  it('outline', () => {
+    expect(
+      transform('class="outline#fff md:outline-solid"'),
+    ).toMatchInlineSnapshot('"class=\\"outline-[#fff] md:outline-solid\\""')
+    expect(
+      transform('class="outline-red"'),
+    ).toMatchInlineSnapshot('"class=\\"outline-red outline\\""')
   })
 })
