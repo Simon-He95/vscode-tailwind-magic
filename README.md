@@ -111,39 +111,41 @@
 - You can use config to control some matching rules, such as strict-splicing, or the generated calculation result is `-[10px]` or `-10px`
 - attributifyMode defaults true, turn on the ability to automatically convert tailwind attributes into class, just like the writing of attributify of unuchs, which automatically converts after saving.
 
-``` typescript
-      "properties": {
-        "tailwindMagic.variantGroup": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable/disable transform hover:(x1 x2) to hover:x1 hover:x2"
-        },
-        "tailwindMagic.strictMode": {
-          "type": "boolean",
-          "default": false,
-          "description": "if true bg#fff or bgrgba(0,0,0,.0) will transform bg-[#fff] or bg-[rgba(0,0,0,.0)]"
-        },
-        "tailwindMagic.attributifyMode": {
-          "type": "boolean",
-          "default": true,
-          "description": "if true the attribute bg#fff will transform class=\"bg-[#fff]\""
-        },
-        "tailwindMagic.presets": {
-          "type": "array",
-          "default": [],
-          "description": "set transform rules"
-        },
-        "tailwindMagic.code": {
-          "type": "boolean",
-          "default": "",
-          "description": "activation code"
-        },
-        "tailwindMagic.aggressiveMode": {
-          "type": "boolean",
-          "default": false,
-          "description": "After turning on aggressive mode, it will be more abbreviated, such as t1 -> top-1"
-        }
-      }
+``` json
+{
+  "properties": {
+    "tailwindMagic.variantGroup": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable transform hover:(x1 x2) to hover:x1 hover:x2"
+    },
+    "tailwindMagic.strictMode": {
+      "type": "boolean",
+      "default": false,
+      "description": "if true bg#fff or bgrgba(0,0,0,.0) will transform bg-[#fff] or bg-[rgba(0,0,0,.0)]"
+    },
+    "tailwindMagic.attributifyMode": {
+      "type": "boolean",
+      "default": true,
+      "description": "if true the attribute bg#fff will transform class=\"bg-[#fff]\""
+    },
+    "tailwindMagic.presets": {
+      "type": "array",
+      "default": [],
+      "description": "set transform rules"
+    },
+    "tailwindMagic.code": {
+      "type": "boolean",
+      "default": "",
+      "description": "activation code"
+    },
+    "tailwindMagic.aggressiveMode": {
+      "type": "boolean",
+      "default": false,
+      "description": "After turning on aggressive mode, it will be more abbreviated, such as t1 -> top-1"
+    }
+  }
+}
 ```
 
 ## :coffee:

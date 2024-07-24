@@ -110,39 +110,41 @@
 - 您可以使用配置来控制一些匹配规则，例如严格拆分，或者生成的计算结果是`-[10px]`或`-10px`
 - attributifyMode 默认 true，开启tailwind 属性自动转换成class的能力，就像unocss的attributify的写法，保存后自动转换
 
-``` typescript
-      "properties": {
-        "tailwindMagic.variantGroup": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable/disable transform hover:(x1 x2) to hover:x1 hover:x2"
-        },
-        "tailwindMagic.strictMode": {
-          "type": "boolean",
-          "default": false,
-          "description": "if true bg#fff or bgrgba(0,0,0,.0) will transform bg-[#fff] or bg-[rgba(0,0,0,.0)]"
-        },
-        "tailwindMagic.attributifyMode": {
-          "type": "boolean",
-          "default": true,
-          "description": "if true the attribute bg#fff will transform class=\"bg-[#fff]\""
-        },
-        "tailwindMagic.presets": {
-          "type": "array",
-          "default": [],
-          "description": "set transform rules"
-        },
-        "tailwindMagic.code": {
-          "type": "boolean",
-          "default": "",
-          "description": "activation code"
-        },
-        "tailwindMagic.aggressiveMode": {
-          "type": "boolean",
-          "default": false,
-          "description": "开启激进模式后，可以更加精简一些规则的写法，比如 t1 -> top-1"
-        }
-      }
+``` json
+{
+  "properties": {
+    "tailwindMagic.variantGroup": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable/disable transform hover:(x1 x2) to hover:x1 hover:x2"
+    },
+    "tailwindMagic.strictMode": {
+      "type": "boolean",
+      "default": false,
+      "description": "if true bg#fff or bgrgba(0,0,0,.0) will transform bg-[#fff] or bg-[rgba(0,0,0,.0)]"
+    },
+    "tailwindMagic.attributifyMode": {
+      "type": "boolean",
+      "default": true,
+      "description": "if true the attribute bg#fff will transform class=\"bg-[#fff]\""
+    },
+    "tailwindMagic.presets": {
+      "type": "array",
+      "default": [],
+      "description": "set transform rules"
+    },
+    "tailwindMagic.code": {
+      "type": "boolean",
+      "default": "",
+      "description": "activation code"
+    },
+    "tailwindMagic.aggressiveMode": {
+      "type": "boolean",
+      "default": false,
+      "description": "开启激进模式后，可以更加精简一些规则的写法，比如 t1 -> top-1"
+    }
+  }
+}
 ```
 
 ## :coffee:
