@@ -22,6 +22,7 @@ describe('should', () => {
   })
   it('border', () => {
     expect(transform('class="brd-1"')).toMatchInlineSnapshot(`"class="rounded-1""`)
+    expect(transform('class="rd2"')).toMatchInlineSnapshot(`"class="rounded-2""`)
     expect(transform('class="br1"')).toMatchInlineSnapshot(`"class="border-r""`)
     expect(transform('class="bl1"')).toMatchInlineSnapshot(`"class="border-l""`)
     expect(transform('class="bt1"')).toMatchInlineSnapshot(`"class="border-t""`)
@@ -619,10 +620,10 @@ describe('aggressiveMode', () => {
     ).toMatchInlineSnapshot(`"class="gap-1""`)
     expect(
       transform('class="gx1px"'),
-    ).toMatchInlineSnapshot(`"class="gx-[1px]""`)
+    ).toMatchInlineSnapshot(`"class="gap-x-[1px]""`)
     expect(
       transform('class="gy1"'),
-    ).toMatchInlineSnapshot(`"class="gy-1""`)
+    ).toMatchInlineSnapshot(`"class="gap-y-1""`)
   })
   it('tc | tl | tr | te | tj | ts | tw | fs | fe | fb | fa | fev', () => {
     expect(
@@ -717,18 +718,18 @@ describe('aggressiveMode', () => {
     ).toMatchInlineSnapshot(`"class="[&>*]:hover:w-[20px] [&>*]:hover:bg-red-100""`)
     expect(
       transform('class="first-child:w20px"'),
-    ).toMatchInlineSnapshot(`"class="first:[&>*]:w20px""`)
+    ).toMatchInlineSnapshot(`"class="first:[&>*]:w-[20px]""`)
     expect(
       transform('class="last-child:w20px"'),
-    ).toMatchInlineSnapshot(`"class="last:[&>*]:w20px""`)
+    ).toMatchInlineSnapshot(`"class="last:[&>*]:w-[20px]""`)
     expect(
       transform('class="child-(3n+1):w20px"'),
-    ).toMatchInlineSnapshot(`"class="[&>*:nth-of-type(3n+1)]:w20px""`)
+    ).toMatchInlineSnapshot(`"class="[&>*:nth-of-type(3n+1)]:w-[20px]""`)
   })
   it('left-group', () => {
     expect(
       transform('class="(first last):w20px (children hover):h20px"'),
-    ).toMatchInlineSnapshot(`"class="first:w-[20px] last:w-[20px] [&>*]:h20px hover:h-[20px]""`)
+    ).toMatchInlineSnapshot(`"class="first:w-[20px] last:w-[20px] [&>*]:h-[20px] hover:h-[20px]""`)
     expect(
       transform('class="(first last)-w20px (children hover)-h20px"'),
     ).toMatchInlineSnapshot(`"class="first-w-[20px] last-w-[20px] children-h-[20px] hover-h-[20px]""`)
@@ -746,4 +747,13 @@ describe('aggressiveMode', () => {
       transform('class="outline-red"'),
     ).toMatchInlineSnapshot(`"class="outline-red outline""`)
   })
+  it('special', () => {
+    expect(
+      transform('class="[&>*]:gap2"'),
+    ).toMatchInlineSnapshot(`"class="[&>*]:gap-2""`)
+    expect(
+      transform('class="gx2"'),
+    ).toMatchInlineSnapshot(`"class="gap-x-2""`)
+  })
+  
 })
