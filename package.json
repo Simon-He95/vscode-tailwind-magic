@@ -75,6 +75,11 @@
           "type": "boolean",
           "default": false,
           "description": "After turning on aggressive mode, it will be more abbreviated, such as t1 -> top-1"
+        },
+        "tailwindMagic.highlight": {
+          "type": "boolean",
+          "default": true,
+          "description": "match tailwindcss synatx will have underline"
         }
       }
     },

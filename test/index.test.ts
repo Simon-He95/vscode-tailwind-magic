@@ -586,7 +586,7 @@ describe('aggressiveMode', () => {
     ).toMatchInlineSnapshot(`"class="gap-y-1""`)
   })
 
-  it('tc | tl | tr | te | tj | ts | tw | fs | fe | fb | fa | fev', () => {
+  it('tc | tl | tr | te | tj | ts | tw | fs | fe | fb | fa | fev | fl | fr | fls | fle', () => {
     expect(
       transform('className={`w-full py-2 shrink-0 whitespace-nowrap text-ellipsis text-center ${tab === i ? \'bg-primary text-white\' : \'\'}`}'),
     ).toMatchInlineSnapshot('"className={`w-full py-2 shrink-0 whitespace-nowrap text-ellipsis text-center ${tab === i ? \'bg-primary text-white\' : \'\'}`}"')
@@ -632,6 +632,18 @@ describe('aggressiveMode', () => {
     expect(
       transform('class="fev"'),
     ).toMatchInlineSnapshot(`"class="flex justify-evenly""`)
+    expect(
+      transform('class="fl"'),
+    ).toMatchInlineSnapshot(`"class="float-left""`)
+    expect(
+      transform('class="fr"'),
+    ).toMatchInlineSnapshot(`"class="float-right""`)
+    expect(
+      transform('class="fls"'),
+    ).toMatchInlineSnapshot(`"class="float-start""`)
+    expect(
+      transform('class="fle"'),
+    ).toMatchInlineSnapshot(`"class="float-end""`)
   })
 
   it('wrap:', () => {
