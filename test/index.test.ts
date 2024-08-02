@@ -35,6 +35,7 @@ describe('should', () => {
     expect(
       transform('class="border-solid"'),
     ).toMatchInlineSnapshot(`"class="border-solid""`)
+    expect(transform('class="border-4"')).toMatchInlineSnapshot(`"class="border-4""`)
   })
 
   it('left', () => {
