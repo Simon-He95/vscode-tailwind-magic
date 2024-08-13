@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest'
-import { transform, transformClass, transformClassAttr } from '../src/transform'
+import { transform, transformClass, transformClassAttr, transformMultipleAttrs } from '../src/transform'
 
 describe('should', () => {
   it('nax', () => {
-    expect(transform('class="max-w10"')).toMatchInlineSnapshot(`"class="max-w-10""`)
+    expect(transform('class="maxw10"')).toMatchInlineSnapshot(`"class="max-w-10""`)
   })
 
   it('size', () => {
@@ -13,7 +13,7 @@ describe('should', () => {
     expect(transform('class="h-var(--max-height,480px)"')).toMatchInlineSnapshot(`"class="h-[var(--max-height,480px)]""`)
     expect(transform('class="h-max(--max-height,480px)"')).toMatchInlineSnapshot(`"class="h-[max(--max-height,480px)]""`)
     expect(transform('class="h-[var(--max-heighth,480px)]"')).toMatchInlineSnapshot(`"class="h-[var(--max-heighth,480px)]""`)
-    expect(transformClass('w-full h-[var(--max-heighth,480px)]')).toMatchInlineSnapshot('"w-full h-[var(--max-heighth,480px)]"')
+    expect(transformClass('w-full h-[var(--max-heighth,480px)]', true, true)).toMatchInlineSnapshot('"w-full h-[var(--max-heighth,480px)]"')
   })
 
   it('pointer', () => {
@@ -178,12 +178,6 @@ describe('should', () => {
     ).toMatchInlineSnapshot(`"class="rounded-[32rpx]""`)
   })
 
-  it('flex', () => {
-    expect(
-      transform('class="flex1"'),
-    ).toMatchInlineSnapshot(`"class="flex-1""`)
-  })
-
   it('bb', () => {
     expect(
       transform('class="bb#fff"'),
@@ -201,8 +195,8 @@ describe('should', () => {
       transform('class="whfull!"'),
     ).toMatchInlineSnapshot(`"class="!w-full !h-full""`)
     expect(
-      transform('class="hover:whfull!"'),
-    ).toMatchInlineSnapshot(`"class="!hover:w-full hover:h-full""`)
+      transform('class="hover:(whfull!)"'),
+    ).toMatchInlineSnapshot(`"class="!hover:w-full !hover:h-full""`)
   })
 
   it('flex-between', () => {
@@ -211,11 +205,19 @@ describe('should', () => {
     ).toMatchInlineSnapshot(`"class="flex justify-between""`)
 
     expect(
-      transform('class="hover:flex-between"'),
+      transform('class="hover:(flex-between)"'),
     ).toMatchInlineSnapshot(`"class="hover:flex hover:justify-between""`)
   })
 
   it('flex', () => {
+    expect(
+      transform('class="children:(x-center)"'),
+    ).toMatchInlineSnapshot(`"class="[&>*]:flex [&>*]:justify-center""`)
+
+    expect(
+      transform('class="flex1"'),
+    ).toMatchInlineSnapshot(`"class="flex-1""`)
+
     expect(
       transform('class="x-center"'),
     ).toMatchInlineSnapshot(`"class="flex justify-center""`)
@@ -360,14 +362,14 @@ describe('should', () => {
       transform(':class="hover:bg-[#999]  hover:(font800 text-red)"'),
     ).toMatchInlineSnapshot(`":class="hover:bg-[#999]  hover:font-extrabold hover:text-red""`)
     expect(
-      transform(':class="hover:(flex-center col) w10"'),
-    ).toMatchInlineSnapshot(`":class="hover:flex hover:justify-center hover:items-center hover:flex-col w-10""`)
+      transform(':class="hover:(col) w10"'),
+    ).toMatchInlineSnapshot(`":class="hover:flex hover:flex-col w-10""`)
     expect(
-      transformClass('hover:(w20px,h30px)'),
-    ).toMatchInlineSnapshot(`"className="hover:w-[20px] hover:h-[30px]""`)
+      transformClass(':class="hover:(w20px,h30px)"', true, true),
+    ).toMatchInlineSnapshot(`":class="hover:w-[20px] hover:h-[30px]""`)
     expect(
-      transformClass('text-[red,hover:yellow]'),
-    ).toMatchInlineSnapshot('"text-red hover:text-yellow"')
+      transformClass(':class="text-[red,hover:yellow]"', true, true),
+    ).toMatchInlineSnapshot(`":class="text-red hover:text-yellow"`)
   })
 
   it('hover nested', () => {
@@ -390,7 +392,7 @@ describe('should', () => {
 
   it('xl:', () => {
     expect(
-      transform(':class="xl:flex-center"'),
+      transform(':class="xl:(flex-center)"'),
     ).toMatchInlineSnapshot(`":class="xl:flex xl:justify-center xl:items-center""`)
   })
 
@@ -407,9 +409,6 @@ describe('should', () => {
     expect(
       transform('class="from10% from10 -from10% from--10%"'),
     ).toMatchInlineSnapshot(`"class="from-[10%] from-10 -from-[10%] -from-[10%]""`)
-  })
-
-  it('from', () => {
     expect(
       transform('class="w95% w-95% -w10% w95px"'),
     ).toMatchInlineSnapshot(`"class="w-[95%] w-[95%] -w-[10%] w-[95px]""`)
@@ -447,17 +446,17 @@ describe('should', () => {
       transformClass('hover:(text-red bg-blue)"'),
     ).toMatchInlineSnapshot(`"className="hover:text-red hover:bg-blue"""`)
     expect(
-      transformClass('hover:(text-red bg-blue)'),
+      transformClass('hover:(text-red bg-blue)',),
     ).toMatchInlineSnapshot(`"className="hover:text-red hover:bg-blue""`)
     expect(
-      transformClass('md:(flex-center)'),
-    ).toMatchInlineSnapshot(`"className="md:flex-center""`)
+      transformClass('md:(flex-center)', true, true),
+    ).toMatchInlineSnapshot(`"md:flex md:justify-center md:items-center"`)
     expect(
-      transformClass('<500px:(flex-center)'),
-    ).toMatchInlineSnapshot(`"className="min-[500px]:flex-center""`)
+      transformClass('<500px:(flex-center)', true, true),
+    ).toMatchInlineSnapshot(`"min-[500px]:flex min-[500px]:justify-center min-[500px]:items-center"`)
     expect(
-      transformClass('<500px:(border#eee)'),
-    ).toMatchInlineSnapshot(`"className="min-[500px]:border-[#eee"]"`)
+      transformClass('<500px:(border#eee)', true, true),
+    ).toMatchInlineSnapshot(`"min-[500px]:border-[#eee] min-[500px]:border min-[500px]:border-solid"`)
   })
 
   it('columns', () => {
@@ -737,4 +736,8 @@ describe('aggressiveMode', () => {
       transform('class="gx2"'),
     ).toMatchInlineSnapshot(`"class="gap-x-2""`)
   })
+  it('transformMultipleAttrs', () => {
+    expect(transformMultipleAttrs(' [&>*]:(flex justify-center)', true, )).toMatchInlineSnapshot(`" class="[&>*]:flex [&>*]:justify-center""`)
+  })
 })
+
