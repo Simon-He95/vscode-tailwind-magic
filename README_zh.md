@@ -11,6 +11,12 @@
 
 [❓ 为什么推荐使用 Tailwind Magic](https://simonhe.me/posts/vscode-tailwind-magic-zh)
 
+## 🎉 优点
+- 你不限于在 class 或 className 中使用 tailwindcss 的语法，你可以在任何地方使用
+- 极度自由映射和缩写，但是会转换回 tailwind 语法，保证最终的代码是符合 tailwindcss 的语法，是能够语意化的
+- 他能够自动带出应该包含的属性，比如 col -> flex flex-col，border#eee -> border-[#eee] border border-1 等等
+- 他能够使用 UnoCss 的所有简单语法，甚至更加简单，比如 `bg#fff` -> `bg-[#fff]`，还能用 `hover:(text-red bg-blue)` -> `hover:text-red hover:bg-blue` 等等的语法
+
 ## 〽️ 建议
 
 - 使用最新的vscode版本

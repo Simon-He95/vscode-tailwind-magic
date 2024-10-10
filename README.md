@@ -10,6 +10,12 @@ In addition, if the third-party style you introduce is similar to tailwind synta
 Currently, this plugin has a [paid plan](#-charge-plan). If you haven’t tried it yet, you can find me on [discord](https://discord.com/invite/ZnjxzMKWNW) and get a one-month free trial.
 [❓ Why is Tailwind Magic recommended](https://simonhe.me/posts/vscode-tailwind-magic)
 
+## 🎉 Advantages
+- You are not limited to using tailwindcss syntax in class or className, you can use it anywhere
+- Extremely free mapping and abbreviation, but it will be converted back to tailwind syntax to ensure that the final code is in line with tailwindcss syntax and can be semantic
+- It can automatically bring out the attributes that should be included, such as col -> flex flex-col, border#eee -> border-[#eee] border border-1, etc.
+- It can use all the simple syntax of UnoCss, even simpler, such as `bg#fff` -> `bg-[#fff]`, and can also use `hover:(text-red bg-blue)` -> `hover:text-red hover:bg-blue` and other syntax
+
 ## 〽️ Suggestions
 
 - Use the latest version of vscode
