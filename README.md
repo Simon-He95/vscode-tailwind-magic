@@ -5,6 +5,8 @@
 
 🌈 This vscode plug-in is to solve the inconvenience of the syntax of tailwindcss. It can bring you the ultimate development experience and development efficiency. If you use UnoCss, you can choose [Unot] (https://github.com/Simon-He95/unot).
 
+In addition, if the third-party style you introduce is similar to tailwind syntax and there is a conflict, you may need to modify your current project to add `prefix`, and this plugin can detect whether `prefix` is added and automatically add it when saving
+
 [❓ Why is Tailwind Magic recommended](https://simonhe.me/posts/vscode-tailwind-magic)
 
 ## 〽️ Suggestions
@@ -15,16 +17,11 @@
 
 ![demo](assets/demo.gif)
 
-## ✨ Temporarily free
+## 💰 Charge plan
 
-- Since the previous service was hung on AirCode, AirCode is no available now. It is planned to be used for free before December 31, 2024.
-
-## ~~💰 Charge plan~~
-- At present, the plug-in requires an activation code to run normally.
-
+- [Sponsor](https://github.com/Simon-He95/sponsor) me by wechat or alipay, and I will give you more permissions and time to use your GitHub account
 - For users who haven't experienced it yet, you can find me on [discord](https://discord.com/invite/ZnjxzMKWNW) to get a one-month free experience qualification.
-
-- Current plan 9.9/month, 100/year
+- Current plan 15Yuan/month, 150Yuan/year
 - Any `bug` or `suggestion` on the plugin can be communicated on `discord`, or add me wx: `www674949287`, pull you into the wx group
 
 ## 💪 Current processing type
@@ -49,6 +46,7 @@
 - \>500px:w10px -> max-[500px]:w-[10px]
 - <500px:(w10px h20px) -> min-[500px]:w-[10px] min-[500px]:h-[20px]
 - whfull -> w-full h-full
+- url(./a.png) -> bg-[url(./a.png)]
 
 ## When you enable `aggressiveMode`, you can get the following conversion
 ```json
