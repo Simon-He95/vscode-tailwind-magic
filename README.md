@@ -5,8 +5,9 @@
 
 🌈 This vscode plug-in is to solve the inconvenience of the syntax of tailwindcss. It can bring you the ultimate development experience and development efficiency. If you use UnoCss, you can choose [Unot] (https://github.com/Simon-He95/unot).
 
-In addition, if the third-party style you introduce is similar to tailwind syntax and there is a conflict, you may need to modify your current project to add `prefix`, and this plugin can detect whether `prefix` is added and automatically add it when saving
+In addition, if the third-party style you introduce is similar to tailwind syntax and there is a conflict, you may need to modify your current project to add `prefix`, and this plugin can detect whether `prefix` is added and automatically add it when saving.
 
+Currently, this plugin has a [paid plan](#-charge-plan). If you haven’t tried it yet, you can find me on [discord](https://discord.com/invite/ZnjxzMKWNW) and get a one-month free trial.
 [❓ Why is Tailwind Magic recommended](https://simonhe.me/posts/vscode-tailwind-magic)
 
 ## 〽️ Suggestions

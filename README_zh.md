@@ -5,7 +5,9 @@
 
 🌈 这个 vscode 插件是为了解决 tailwindcss 的语法使用的不便，他能给你带来极致的开发体验和开发效率。如果你使用 UnoCss 可以选择 [Unot](https://github.com/Simon-He95/unot).
 
-另外，如果你引入的三方样式，是类似 tailwind 的语法，存在冲突，你可能要改造你当前的项目，去增加 `prefix`, 而这个插件能检测是否 `prefix`, 保存时候会自动添加
+另外，如果你引入的三方样式，是类似 tailwind 的语法，存在冲突，你可能要改造你当前的项目，去增加 `prefix`, 而这个插件能检测是否 `prefix`, 保存时候会自动添加。
+
+目前这个插件已有了[收费计划](#-收费计划)，如果你还未体验过，可以在 [discord](https://discord.com/invite/ZnjxzMKWNW) 上找到我，获得一个月免费体验资格。
 
 [❓ 为什么推荐使用 Tailwind Magic](https://simonhe.me/posts/vscode-tailwind-magic-zh)
 
