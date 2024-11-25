@@ -112,6 +112,31 @@ Currently, this plugin has a [paid plan](#-charge-plan). If you haven’t tried 
 
 ```
 
+## Notes
+- tailwind-magic will convert the properties of custom components, such as `block` in some `el-button`, you can skip these conversions through `skipMappings`, the rules are as follows:
+
+```json
+{
+  "tailwindMagic.skipMappings": {
+    "el-form": [
+      "inline"
+    ],
+    "Form": [
+      "inline"
+    ],
+    "el-table": [
+      "border"
+    ],
+    "Table": [
+      "border"
+    ],
+    "van-button": [
+      "block"
+    ]
+  }
+}
+```
+
 ## Configuration
 - You can use config to control some matching rules, such as strict-splicing, or the generated calculation result is `-[10px]` or `-10px`
 - attributifyMode defaults true, turn on the ability to automatically convert tailwind attributes into class, just like the writing of attributify of unuchs, which automatically converts after saving.

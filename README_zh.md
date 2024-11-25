@@ -113,6 +113,31 @@
 
 ```
 
+## 注意事项
+- tailwind-magic 会转换 自定义组件的属性，比如一些 `el-button` 中的 `block`, 你可以通过 `skipMappings` 来跳过这些转换，规则如下：
+
+```json
+{
+  "tailwindMagic.skipMappings": {
+    "el-form": [
+      "inline"
+    ],
+    "Form": [
+      "inline"
+    ],
+    "el-table": [
+      "border"
+    ],
+    "Table": [
+      "border"
+    ],
+    "van-button": [
+      "block"
+    ]
+  }
+}
+```
+
 ## 参数配置
 - 您可以使用配置来控制一些匹配规则，例如严格拆分，或者生成的计算结果是`-[10px]`或`-10px`
 - attributifyMode 默认 true，开启tailwind 属性自动转换成class的能力，就像unocss的attributify的写法，保存后自动转换
