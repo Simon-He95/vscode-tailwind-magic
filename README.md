@@ -29,7 +29,7 @@ Currently, this plugin has a [paid plan](#-charge-plan). If you haven’t tried 
 - [Sponsor](https://github.com/Simon-He95/sponsor) me by wechat or alipay, and I will give you more permissions and time to use your GitHub account
 - For users who haven't experienced it yet, you can find me on [discord](https://discord.com/invite/ZnjxzMKWNW) to get a one-month free experience qualification.
 - Current plan 15Yuan/month, 150Yuan/year
-- Any `bug` or `suggestion` on the plugin can be communicated on `discord`, or add me wx: `www674949287`, pull you into the wx group
+- Any `bug` or `suggestion` on the plugin can be communicated on `discord`, or add me wx: `simon_he95`, pull you into the wx group
 
 ## 💪 Current processing type
 - calc
