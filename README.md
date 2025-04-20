@@ -3,7 +3,7 @@
 </p>
 <p align="center"> English | <a href="./README_zh.md">简体中文</a></p>
 
-🌈 This vscode plug-in is to solve the inconvenience of the syntax of tailwindcss. It can bring you the ultimate development experience and development efficiency. If you use UnoCss, you can choose [Unot] (https://github.com/Simon-He95/unot).
+🌈 This vscode plug-in is to solve the inconvenience of the syntax of tailwindcss. It can bring you the ultimate development experience and development efficiency. If you use UnoCss, you can choose [Unot](https://github.com/Simon-He95/unot).
 
 In addition, if the third-party style you introduce is similar to tailwind syntax and there is a conflict, you may need to modify your current project to add `prefix`, and this plugin can detect whether `prefix` is added and automatically add it when saving.
 
